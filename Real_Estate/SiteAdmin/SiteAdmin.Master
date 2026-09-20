@@ -1,0 +1,46 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SiteAdmin.Master.cs" Inherits="Real_Estate.SiteAdmin.SiteAdminMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Admin | realEstate</title>
+    <link href="css/admin-style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" style="display: flex; width: 100%;">
+
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                site<span>Admin</span>
+            </div>
+            <nav class="admin-nav">
+                <a href="Dashboard.aspx">Dashboard</a>
+                <a href="ManageAgents.aspx">Manage Agents</a>
+                <a href="AgentWork.aspx">Agent Work</a>
+            </nav>
+            <div class="admin-footer">
+                &copy; 2026 realEstate<br />
+                Site Administrator.
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h2>
+                    <asp:Literal ID="litPageTitle" runat="server" Text="Site Admin"></asp:Literal></h2>
+                <div class="agent-profile">
+                    <span><asp:Literal ID="litAdminName" runat="server" Text="Site Admin"></asp:Literal></span>
+                    <div class="agent-avatar">SA</div>
+                </div>
+            </header>
+
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+    </form>
+</body>
+</html>
