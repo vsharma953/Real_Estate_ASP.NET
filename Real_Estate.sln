@@ -1,6 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
+<<<<<<< HEAD
 VisualStudioVersion = 17.14.37411.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Real_Estate", "Real_Estate\Real_Estate.csproj", "{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}"
@@ -15,10 +16,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
+=======
+VisualStudioVersion = 17.14.37411.7 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Real_Estate", "Real_Estate\Real_Estate.csproj", "{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+>>>>>>> 4a302d6 (Merge remote master into local master)
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+<<<<<<< HEAD
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Debug|x64.Build.0 = Debug|Any CPU
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -29,6 +41,10 @@ Global
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Release|x64.Build.0 = Release|Any CPU
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Release|x86.ActiveCfg = Release|Any CPU
 		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Release|x86.Build.0 = Release|Any CPU
+=======
+		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> 4a302d6 (Merge remote master into local master)
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
