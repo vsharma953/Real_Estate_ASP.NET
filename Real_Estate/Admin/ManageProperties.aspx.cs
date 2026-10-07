@@ -122,7 +122,6 @@ namespace Real_Estate.Admin
 
                 getcon();
 
-                // the agent who is logged in becomes the owner of the new listing
                 string agentId = Session["AgentID"] == null ? "NULL" : "'" + Session["AgentID"].ToString() + "'";
 
                 cmd = new SqlCommand(
@@ -194,7 +193,6 @@ namespace Real_Estate.Admin
             }
         }
 
-
         protected void gvProperties_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "EditRow")
@@ -205,7 +203,6 @@ namespace Real_Estate.Admin
 
                 filldata();
             }
-
 
             else if (e.CommandName == "DeleteRow")
             {
@@ -222,7 +219,6 @@ namespace Real_Estate.Admin
                 gridfield();
             }
         }
-
 
         void filldata()
         {
@@ -249,8 +245,6 @@ namespace Real_Estate.Admin
 
             con.Close();
         }
-
-
         protected void btnCancel_Click(object sender,EventArgs e)
         {
             clear();
