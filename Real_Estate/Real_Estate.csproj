@@ -87,7 +87,6 @@
       <DependentUpon>Real_Estate_DB.mdf</DependentUpon>
     </Content>
     <Content Include="Contact.aspx" />
-    <Content Include="Global.asax" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Inquiry.aspx" />
@@ -95,7 +94,6 @@
     <Content Include="Properties.aspx" />
     <Content Include="LoginRegister.aspx" />
     <Content Include="Services.aspx" />
-    <Content Include="Testimonials.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -197,9 +195,6 @@
     <Compile Include="SiteAdmin\AgentWork.aspx.designer.cs">
       <DependentUpon>AgentWork.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,13 +245,6 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="Testimonials.aspx.cs">
-      <DependentUpon>Testimonials.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Testimonials.aspx.designer.cs">
-      <DependentUpon>Testimonials.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Admin.Master" />
@@ -271,7 +259,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Databases\" />
-    <Folder Include="SiteAdmin\" />
     <Folder Include="images\properties\" />
   </ItemGroup>
   <PropertyGroup>
