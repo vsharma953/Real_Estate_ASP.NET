@@ -95,8 +95,7 @@ namespace Real_Estate.SiteAdmin
                     return;
                 }
 
-                cmd = new SqlCommand(
-                    "INSERT INTO Agents(FullName, Email, Phone, Password, Status) " +
+                cmd = new SqlCommand("INSERT INTO Agents(FullName, Email, Phone, Password, Status) " +
                     "VALUES('" +
                     txtFullName.Text + "','" +
                     txtEmail.Text + "','" +
@@ -172,7 +171,6 @@ namespace Real_Estate.SiteAdmin
             {
                 getcon();
 
-                // the agent's listings stay on the website and show as Unassigned
                 cmd = new SqlCommand("UPDATE Properties SET AgentID=NULL WHERE AgentID='" + e.CommandArgument.ToString() + "'", con);
                 cmd.ExecuteNonQuery();
 
@@ -187,7 +185,6 @@ namespace Real_Estate.SiteAdmin
                 gridfield();
             }
         }
-
 
         void filldata()
         {
@@ -210,7 +207,6 @@ namespace Real_Estate.SiteAdmin
 
             con.Close();
         }
-
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {

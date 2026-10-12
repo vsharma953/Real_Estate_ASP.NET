@@ -69,7 +69,6 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Account.aspx" />
-    <Content Include="Admin\ClientDirectory.aspx" />
     <Content Include="Admin\css\admin-style.css" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Login.aspx" />
@@ -117,13 +116,6 @@
     </Compile>
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ClientDirectory.aspx.cs">
-      <DependentUpon>ClientDirectory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ClientDirectory.aspx.designer.cs">
-      <DependentUpon>ClientDirectory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
