@@ -69,13 +69,11 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Account.aspx" />
-    <Content Include="Admin\ClientDirectory.aspx" />
     <Content Include="Admin\css\admin-style.css" />
     <Content Include="Admin\Dashboard.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ManageProperties.aspx" />
     <Content Include="Admin\Settings.aspx" />
-    <Content Include="Admin\ValuationRequests.aspx" />
     <Content Include="SiteAdmin\css\admin-style.css" />
     <Content Include="SiteAdmin\SiteAdmin.Master" />
     <Content Include="SiteAdmin\Login.aspx" />
@@ -120,13 +118,6 @@
     <Compile Include="Admin\Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ClientDirectory.aspx.cs">
-      <DependentUpon>ClientDirectory.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ClientDirectory.aspx.designer.cs">
-      <DependentUpon>ClientDirectory.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -154,13 +145,6 @@
     </Compile>
     <Compile Include="Admin\Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ValuationRequests.aspx.cs">
-      <DependentUpon>ValuationRequests.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ValuationRequests.aspx.designer.cs">
-      <DependentUpon>ValuationRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiteAdmin\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
@@ -271,7 +255,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Databases\" />
-    <Folder Include="SiteAdmin\" />
     <Folder Include="images\properties\" />
   </ItemGroup>
   <PropertyGroup>

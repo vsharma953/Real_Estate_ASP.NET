@@ -42,7 +42,7 @@ namespace Real_Estate.Admin
         protected global::System.Web.UI.WebControls.Literal litPageTitle;
 
         /// <summary>
-        /// MainContent control.
+        /// litAgentName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -50,8 +50,22 @@ namespace Real_Estate.Admin
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litAgentName;
 
+        /// <summary>
+        /// litAgentInitials control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litAgentInitials;
 
+        /// <summary>
+        /// MainContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
     }
 }

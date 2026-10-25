@@ -19,8 +19,6 @@
             <nav class="admin-nav">
                 <a href="Dashboard.aspx">Dashboard</a>
                 <a href="ManageProperties.aspx">Properties</a>
-                <a href="ClientDirectory.aspx">Client Directory</a>
-                <%--<a href="ValuationRequests.aspx">Valuation Requests</a>--%>
                 <a href="Settings.aspx">Settings</a>
             </nav>
             <div class="admin-footer">
