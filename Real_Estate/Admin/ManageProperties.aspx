@@ -311,11 +311,20 @@
                 </td>
 
                 <td>
-                    <asp:TextBox ID="txtStatus"
+                    <asp:DropDownList ID="ddlStatus"
                         runat="server"
                         Width="95%"
                         CssClass="form-control">
-                    </asp:TextBox>
+
+                        <asp:ListItem Text="Available"
+                            Value="Available">
+                        </asp:ListItem>
+
+                        <asp:ListItem Text="Sold"
+                            Value="Sold">
+                        </asp:ListItem>
+
+                    </asp:DropDownList>
                 </td>
 
             </tr>
