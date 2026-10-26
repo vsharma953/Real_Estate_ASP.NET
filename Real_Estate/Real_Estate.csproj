@@ -74,6 +74,7 @@
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ManageProperties.aspx" />
     <Content Include="Admin\Settings.aspx" />
+    <Content Include="SiteAdmin\Analytics.aspx" />
     <Content Include="SiteAdmin\css\admin-style.css" />
     <Content Include="SiteAdmin\SiteAdmin.Master" />
     <Content Include="SiteAdmin\Login.aspx" />
@@ -144,6 +145,13 @@
     </Compile>
     <Compile Include="Admin\Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SiteAdmin\Analytics.aspx.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteAdmin\Analytics.aspx.designer.cs">
+      <DependentUpon>Analytics.aspx</DependentUpon>
     </Compile>
     <Compile Include="SiteAdmin\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>

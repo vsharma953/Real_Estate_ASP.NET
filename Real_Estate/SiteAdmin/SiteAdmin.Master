@@ -20,6 +20,7 @@
                 <a href="Dashboard.aspx">Dashboard</a>
                 <a href="ManageAgents.aspx">Manage Agents</a>
                 <a href="AgentWork.aspx">Agent Work</a>
+                <a href="Analytics.aspx">Analytics Report</a>
             </nav>
             <div class="admin-footer">
                 &copy; 2026 realEstate<br />
