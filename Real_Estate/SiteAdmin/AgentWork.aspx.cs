@@ -83,12 +83,10 @@ namespace Real_Estate.SiteAdmin
             con.Close();
         }
 
-
         protected void ddlAgentFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             gridfield();
         }
-
 
         protected void gvAgentWork_RowCommand(object sender, GridViewCommandEventArgs e)
         {

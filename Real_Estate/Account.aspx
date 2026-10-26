@@ -3,6 +3,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
     <style>
+        /* ---------- Base ---------- */
+        .account-page,
+        .account-page *,
+        .account-page *::before,
+        .account-page *::after {
+            box-sizing: border-box;
+        }
+
         .account-page {
             min-height: 75vh;
             padding: 70px 20px;
@@ -21,6 +29,7 @@
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
         }
 
+        /* ---------- Header ---------- */
         .account-header {
             text-align: center;
             margin-bottom: 35px;
@@ -39,6 +48,7 @@
                 font-size: 15px;
             }
 
+        /* ---------- User info ---------- */
         .user-info {
             margin-bottom: 30px;
         }
@@ -60,14 +70,14 @@
         .info-value {
             display: block;
             width: 100%;
-            min-height: 18px;
-            box-sizing: border-box;
+            min-height: 46px;
             padding: 13px 15px;
             border: 1px solid #dddddd;
             border-radius: 8px;
             background: #f7f7f7;
             color: #333333;
             font-size: 15px;
+            word-break: break-word;
         }
 
         .divider {
@@ -76,6 +86,7 @@
             margin: 30px 0;
         }
 
+        /* ---------- Password section ---------- */
         .password-title {
             margin-bottom: 22px;
         }
@@ -107,7 +118,6 @@
 
         .password-input {
             width: 100%;
-            box-sizing: border-box;
             padding: 13px 15px;
             border: 1px solid #d8d8d8;
             border-radius: 8px;
@@ -115,39 +125,100 @@
             color: #333333;
             background: #ffffff;
             outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
             .password-input:focus {
                 border-color: #b40000;
+                box-shadow: 0 0 0 3px rgba(180, 0, 0, 0.12);
+            }
+
+        /* ---------- Buttons ---------- */
+        .update-button,
+        .delete-button,
+        .confirm-delete-button,
+        .cancel-delete-button {
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+            .update-button:focus-visible,
+            .delete-button:focus-visible,
+            .confirm-delete-button:focus-visible,
+            .cancel-delete-button:focus-visible {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(180, 0, 0, 0.25);
             }
 
         .update-button {
-            width: 100%;
             border: none;
-            border-radius: 8px;
             padding: 14px 20px;
             margin-top: 5px;
             background: #b40000;
             color: #ffffff;
             font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
         }
 
             .update-button:hover {
                 background: #8f0000;
             }
 
-        .message {
+        .delete-button {
+            border: 1px solid #b40000;
+            padding: 14px 20px;
+            background: #ffffff;
+            color: #b40000;
+            font-size: 15px;
+        }
+
+            .delete-button:hover {
+                background: #b40000;
+                color: #ffffff;
+            }
+
+        .confirm-delete-button {
+            border: none;
+            padding: 14px 20px;
+            margin-top: 5px;
+            background: #b40000;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+            .confirm-delete-button:hover {
+                background: #8f0000;
+            }
+
+        .cancel-delete-button {
+            border: 1px solid #cccccc;
+            padding: 13px 20px;
+            margin-top: 10px;
+            background: #ffffff;
+            color: #555555;
+            font-size: 14px;
+        }
+
+            .cancel-delete-button:hover {
+                background: #f1f1f1;
+            }
+
+        /* ---------- Messages ---------- */
+        .message,
+        .delete-message {
             display: block;
             width: 100%;
-            box-sizing: border-box;
             padding: 12px 15px;
             margin-top: 18px;
             border-radius: 7px;
             text-align: center;
             font-size: 14px;
             font-weight: 500;
+            line-height: 1.5;
         }
 
         .success-message {
@@ -162,6 +233,19 @@
             color: #a00000;
         }
 
+        .success-delete-message {
+            background: #eaf7ee;
+            border: 1px solid #b8dfc3;
+            color: #21733a;
+        }
+
+        .error-delete-message {
+            background: #fff0f0;
+            border: 1px solid #e2aaaa;
+            color: #a00000;
+        }
+
+        /* ---------- Delete section ---------- */
         .delete-section {
             margin-top: 5px;
         }
@@ -178,49 +262,6 @@
             color: #888888;
             font-size: 14px;
             line-height: 1.5;
-        }
-
-        .delete-button {
-            width: 100%;
-            border: 1px solid #b40000;
-            border-radius: 8px;
-            padding: 14px 20px;
-            background: #ffffff;
-            color: #b40000;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-            .delete-button:hover {
-                background: #b40000;
-                color: #ffffff;
-            }
-
-        .delete-message {
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 12px 15px;
-            margin-top: 18px;
-            border-radius: 7px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        @media (max-width: 600px) {
-
-            .account-page {
-                padding: 40px 15px;
-            }
-
-            .account-card {
-                padding: 25px 20px;
-            }
-
-            .account-header h1 {
-                font-size: 27px;
-            }
         }
 
         .delete-confirm-box {
@@ -249,71 +290,47 @@
                 line-height: 1.6;
             }
 
-        .confirm-delete-button {
-            width: 100%;
-            border: none;
-            border-radius: 8px;
-            padding: 14px 20px;
-            background: #b40000;
-            color: #ffffff;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 5px;
-        }
-
-            .confirm-delete-button:hover {
-                background: #8f0000;
+        /* ---------- Responsive ---------- */
+        @media (max-width: 600px) {
+            .account-page {
+                padding: 40px 15px;
             }
 
-        .cancel-delete-button {
-            width: 100%;
-            border: 1px solid #cccccc;
-            border-radius: 8px;
-            padding: 13px 20px;
-            background: #ffffff;
-            color: #555555;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-            .cancel-delete-button:hover {
-                background: #f1f1f1;
+            .account-card {
+                padding: 25px 20px;
             }
 
-        .delete-message {
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 12px 15px;
-            margin-top: 18px;
-            border-radius: 7px;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 500;
+            .account-header h1 {
+                font-size: 27px;
+            }
+
+            .password-title h2,
+            .delete-title h2 {
+                font-size: 20px;
+            }
+
+            .delete-confirm-box {
+                padding: 20px 16px;
+            }
         }
 
-        .success-delete-message {
-            background: #eaf7ee;
-            border: 1px solid #b8dfc3;
-            color: #21733a;
-        }
-
-        .error-delete-message {
-            background: #fff0f0;
-            border: 1px solid #e2aaaa;
-            color: #a00000;
+        @media (prefers-reduced-motion: reduce) {
+            .password-input,
+            .update-button,
+            .delete-button,
+            .confirm-delete-button,
+            .cancel-delete-button {
+                transition: none;
+            }
         }
     </style>
 
     <script type="text/javascript">
 
         function confirmDelete() {
-
-            return window.confirm("Are you sure you want to permanently delete your account?\n\nThis action cannot be undone");
+            return window.confirm("Are you sure you want to permanently delete your account?\n\nThis action cannot be undone.");
         }
+
     </script>
 
 </asp:Content>
@@ -321,127 +338,77 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <section class="account-page">
+    <section class="account-page" aria-labelledby="accountHeading">
 
         <div class="account-container">
 
             <div class="account-card">
 
                 <div class="account-header">
-
-                    <h1>My Account</h1>
-
-                    <p>
-                        Manage your account information and password
-                    </p>
-
+                    <h1 id="accountHeading">My Account</h1>
+                    <p>Manage your account information and password</p>
                 </div>
 
+                <!-- USER INFO -->
                 <div class="user-info">
 
                     <div class="info-group">
-
-                        <span class="info-label">First Name
-                        </span>
-
-                        <asp:Label
-                            ID="lblFirstName"
-                            runat="server"
-                            CssClass="info-value">
-                        </asp:Label>
-
+                        <span class="info-label">First Name</span>
+                        <asp:Label ID="lblFirstName" runat="server" CssClass="info-value"></asp:Label>
                     </div>
 
-
                     <div class="info-group">
-
-                        <span class="info-label">Email
-                        </span>
-
-                        <asp:Label
-                            ID="lblEmail"
-                            runat="server"
-                            CssClass="info-value">
-                        </asp:Label>
-
+                        <span class="info-label">Email</span>
+                        <asp:Label ID="lblEmail" runat="server" CssClass="info-value"></asp:Label>
                     </div>
 
                 </div>
 
-
                 <div class="divider"></div>
 
-
                 <!-- CHANGE PASSWORD -->
-
                 <div class="password-section">
 
                     <div class="password-title">
-
                         <h2>Change Password</h2>
-
-                        <p>
-                            Update your password to keep your account secure.
-                        </p>
-
+                        <p>Update your password to keep your account secure.</p>
                     </div>
 
-
-                    <!-- CURRENT PASSWORD -->
-
                     <div class="form-group">
-
-                        <label>
-                            Current Password
-                        </label>
-
+                        <label for="<%= txtCurrentPassword.ClientID %>">Current Password</label>
                         <asp:TextBox
                             ID="txtCurrentPassword"
                             runat="server"
                             CssClass="password-input"
-                            TextMode="Password">
+                            TextMode="Password"
+                            MaxLength="100"
+                            autocomplete="current-password">
                         </asp:TextBox>
-
                     </div>
 
-
-                    <!-- NEW PASSWORD -->
-
                     <div class="form-group">
-
-                        <label>
-                            New Password
-                        </label>
-
+                        <label for="<%= txtNewPassword.ClientID %>">New Password</label>
                         <asp:TextBox
                             ID="txtNewPassword"
                             runat="server"
                             CssClass="password-input"
-                            TextMode="Password">
+                            TextMode="Password"
+                            MaxLength="100"
+                            autocomplete="new-password">
                         </asp:TextBox>
-
                     </div>
 
-
-                    <!-- CONFIRM PASSWORD -->
-
                     <div class="form-group">
-
-                        <label>
-                            Confirm New Password
-                        </label>
-
+                        <label for="<%= txtConfirmPassword.ClientID %>">Confirm New Password</label>
                         <asp:TextBox
                             ID="txtConfirmPassword"
                             runat="server"
                             CssClass="password-input"
-                            TextMode="Password">
+                            TextMode="Password"
+                            MaxLength="100"
+                            autocomplete="new-password">
                         </asp:TextBox>
-
                     </div>
-
-
-                    <!-- UPDATE -->
 
                     <asp:Button
                         ID="btnUpdatePassword"
@@ -452,38 +419,29 @@
                         CausesValidation="false"
                         UseSubmitBehavior="false" />
 
-
-                    <!-- PASSWORD MESSAGE -->
-
                     <asp:Label
                         ID="lblMessage"
                         runat="server"
                         CssClass="message"
-                        Visible="false">
+                        Visible="false"
+                        role="alert"
+                        aria-live="polite">
                     </asp:Label>
 
                 </div>
 
-
                 <!-- DELETE ACCOUNT -->
-
                 <div class="delete-section">
 
                     <div class="divider"></div>
 
                     <div class="delete-title">
-
                         <h2>Delete Account</h2>
-
                         <p>
                             Permanently delete your account and all associated information.
-            This action cannot be undone.
+                            This action cannot be undone.
                         </p>
-
                     </div>
-
-
-                    <!-- FIRST DELETE BUTTON -->
 
                     <asp:Button
                         ID="btnShowDelete"
@@ -493,9 +451,6 @@
                         OnClick="btnShowDelete_Click"
                         CausesValidation="false" />
 
-
-                    <!-- DELETE CONFIRMATION AREA -->
-
                     <asp:Panel
                         ID="pnlDeleteConfirm"
                         runat="server"
@@ -503,36 +458,24 @@
                         CssClass="delete-confirm-box">
 
                         <div class="delete-warning">
-
                             <h3>Are you sure you want to delete your account?</h3>
-
                             <p>
                                 This will permanently delete your account and your
-                information from our database.
+                                information from our database.
                             </p>
-
                         </div>
 
-
-                        <!-- CURRENT PASSWORD -->
-
                         <div class="form-group">
-
-                            <label>
-                                Enter your current password
-                            </label>
-
+                            <label for="<%= txtDeletePassword.ClientID %>">Enter your current password</label>
                             <asp:TextBox
                                 ID="txtDeletePassword"
                                 runat="server"
                                 TextMode="Password"
-                                CssClass="password-input">
+                                CssClass="password-input"
+                                MaxLength="100"
+                                autocomplete="current-password">
                             </asp:TextBox>
-
                         </div>
-
-
-                        <!-- CONFIRM DELETE -->
 
                         <asp:Button
                             ID="btnConfirmDelete"
@@ -542,9 +485,6 @@
                             OnClick="btnConfirmDelete_Click"
                             CausesValidation="false" />
 
-
-                        <!-- CANCEL -->
-
                         <asp:Button
                             ID="btnCancelDelete"
                             runat="server"
@@ -553,14 +493,13 @@
                             OnClick="btnCancelDelete_Click"
                             CausesValidation="false" />
 
-
-                        <!-- DELETE MESSAGE -->
-
                         <asp:Label
                             ID="lblDeleteMessage"
                             runat="server"
                             CssClass="delete-message"
-                            Visible="false">
+                            Visible="false"
+                            role="alert"
+                            aria-live="polite">
                         </asp:Label>
 
                     </asp:Panel>

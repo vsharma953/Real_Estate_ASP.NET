@@ -14,7 +14,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
+<<<<<<< HEAD
           <StartPageUrl>Admin/Login.aspx</StartPageUrl>
+=======
+          <StartPageUrl>SiteAdmin/Login.aspx</StartPageUrl>
+>>>>>>> 4fa2ae10888796e1696c9d6f0f7ccfc68e0c92f7
           <StartAction>SpecificPage</StartAction>
           <AspNetDebugging>True</AspNetDebugging>
           <SilverlightDebugging>False</SilverlightDebugging>

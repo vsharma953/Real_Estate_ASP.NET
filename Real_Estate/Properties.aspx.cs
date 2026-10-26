@@ -108,9 +108,6 @@ namespace Real_Estate
             gridfield();
         }
 
-
-        // ---------- helpers used by the DataList ItemTemplate ----------
-
         protected string Photo(object value)
         {
             string p = Convert.ToString(value).Trim();
@@ -122,7 +119,6 @@ namespace Real_Estate
 
             return ResolveUrl(p);
         }
-
 
         protected string MainPhoto(object p1, object p2, object p3)
         {
@@ -139,7 +135,6 @@ namespace Real_Estate
             return NoPhoto;
         }
 
-
         protected int PhotoCount(object p1, object p2, object p3)
         {
             int count = 0;
@@ -154,7 +149,6 @@ namespace Real_Estate
 
             return count;
         }
-
 
         protected string Thumbs(object p1, object p2, object p3)
         {
@@ -178,7 +172,6 @@ namespace Real_Estate
             return sb.ToString();
         }
 
-
         protected string TypeLabel(object type, object status)
         {
             string t = Convert.ToString(type).Trim();
@@ -201,10 +194,6 @@ namespace Real_Estate
 
             return t;
         }
-
-
-        // Price is saved as free text by the admin form ("282000", "$ 2.800.000", "1,950,000" ...)
-        // so it is normalised to one style here: $2,800,000
         protected string FormatPrice(object price)
         {
             string raw = Convert.ToString(price).Trim();
@@ -213,10 +202,8 @@ namespace Real_Estate
             {
                 return "Price on request";
             }
-
             string cleaned = Regex.Replace(raw, @"[^\d.,]", "");
 
-            // drop a decimal part such as ".50" (1 or 2 digits after the last separator)
             Match m = Regex.Match(cleaned, @"^(.*)[.,](\d{1,2})$");
 
             if (m.Success)

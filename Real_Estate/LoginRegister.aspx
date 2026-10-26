@@ -59,7 +59,7 @@
 
         .auth-message {
             display: none;
-            margin-top: 1.5rem;
+            margin-top: 1.6rem;
             padding: 1rem 1.25rem;
             background-color: var(--bg-secondary);
             border-left: 4px solid var(--accent);
