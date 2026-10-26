@@ -242,16 +242,19 @@
 
             <tr>
 
-                <td>Price
-                </td>
 
+                <td id="tdPriceLabel">Price / Rent
+                </td>
                 <td>
                     <asp:TextBox ID="txtPrice"
                         runat="server"
                         Width="95%"
-                        CssClass="form-control">
+                        CssClass="form-control"
+                        placeholder="e.g. 2500">
                     </asp:TextBox>
+                    <small id="priceHint" style="color: #888;"></small>
                 </td>
+
 
                 <td>Location
                 </td>
@@ -326,6 +329,35 @@
 
                     </asp:DropDownList>
                 </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>Listing For
+                </td>
+
+                <td>
+                    <asp:DropDownList ID="ddlListingType"
+                        runat="server"
+                        Width="95%"
+                        CssClass="form-control">
+
+                        <asp:ListItem Text="For Sale"
+                            Value="Sale">
+                        </asp:ListItem>
+
+                        <asp:ListItem Text="For Rent"
+                            Value="Rent">
+                        </asp:ListItem>
+
+                    </asp:DropDownList>
+                </td>
+
+                <td></td>
+
+                <td></td>
 
             </tr>
 
@@ -428,6 +460,12 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="Listing">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListing" runat="server" Text='<%# Eval("ListingType") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Price">
                     <ItemTemplate>
                         <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
@@ -462,4 +500,25 @@
 
         </asp:GridView>
     </div>
+    
+<script>
+    (function () {
+        var listingDdl = document.getElementById('<%= ddlListingType.ClientID %>');
+        var hint = document.getElementById('priceHint');
+        var label = document.getElementById('tdPriceLabel');
+
+        function updateHint() {
+            if (listingDdl.value === "Rent") {
+                label.innerText = "Monthly Rent";
+                hint.innerText = "Enter the amount per month (e.g. 2500)";
+            } else {
+                label.innerText = "Sale Price";
+                hint.innerText = "Enter the full sale price (e.g. 450000)";
+            }
+        }
+
+        listingDdl.addEventListener("change", updateHint);
+        updateHint();
+    })();
+</script>
 </asp:Content>

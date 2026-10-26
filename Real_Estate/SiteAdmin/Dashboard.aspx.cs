@@ -55,12 +55,24 @@ namespace Real_Estate.SiteAdmin
             litTotalProperties.Text = ds.Tables[0].Rows.Count.ToString();
 
 
+            da = new SqlDataAdapter("SELECT * FROM Properties WHERE LTRIM(RTRIM(ListingType)) = 'Sale'", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            litForSale.Text = ds.Tables[0].Rows.Count.ToString();
+
+
+            da = new SqlDataAdapter("SELECT * FROM Properties WHERE LTRIM(RTRIM(ListingType)) = 'Rent'", con);
+            ds = new DataSet();
+            da.Fill(ds);
+            litForRent.Text = ds.Tables[0].Rows.Count.ToString();
+
+
             da = new SqlDataAdapter("SELECT * FROM Inquiries", con);
             ds = new DataSet();
             da.Fill(ds);
             litTotalInquiries.Text = ds.Tables[0].Rows.Count.ToString();
 
-            da = new SqlDataAdapter("SELECT * FROM Properties WHERE LTRIM(RTRIM(Status)) = 'Sold'", con);
+            da = new SqlDataAdapter("SELECT * FROM Properties WHERE LTRIM(RTRIM(Status)) = 'Sold' AND LTRIM(RTRIM(ListingType)) = 'Sale'", con);
             ds = new DataSet();
             da.Fill(ds);
 

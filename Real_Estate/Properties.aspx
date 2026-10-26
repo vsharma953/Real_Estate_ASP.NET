@@ -35,6 +35,22 @@
 
             </div>
 
+            <div class="properties-filter listing-filter reveal">
+
+                <asp:LinkButton ID="lnkListAll" runat="server" CssClass="filter-btn active"
+                    CommandName="Listing" CommandArgument="all" OnCommand="Listing_Command"
+                    CausesValidation="false">Buy &amp; Rent</asp:LinkButton>
+
+                <asp:LinkButton ID="lnkForSale" runat="server" CssClass="filter-btn"
+                    CommandName="Listing" CommandArgument="sale" OnCommand="Listing_Command"
+                    CausesValidation="false">For Sale</asp:LinkButton>
+
+                <asp:LinkButton ID="lnkForRent" runat="server" CssClass="filter-btn"
+                    CommandName="Listing" CommandArgument="rent" OnCommand="Listing_Command"
+                    CausesValidation="false">For Rent</asp:LinkButton>
+
+            </div>
+
             <%-- DataList has no EmptyDataTemplate (that belongs to GridView/ListView),
                  so the "nothing listed" message is a normal Label shown from code-behind. --%>
             <asp:Panel ID="pnlEmpty" runat="server" Visible="false" CssClass="properties-empty">
@@ -48,10 +64,12 @@
                 <ItemTemplate>
 
                     <div class="property-card"
+                        data-id='<%#: Eval("PropertyID") %>'
                         data-type='<%#: Eval("PropertyType") %>'
+                        data-listing='<%#: ListingKey(Eval("ListingType")) %>'
                         data-title='<%#: Eval("Title") %>'
                         data-location='<%#: Eval("Location") %>'
-                        data-price='<%#: FormatPrice(Eval("Price")) %>'
+                        data-price='<%#: PriceLabel(Eval("Price"), Eval("ListingType")) %>'
                         data-bedrooms='<%#: Eval("Bedrooms") %>'
                         data-bathrooms='<%#: Eval("Bathrooms") %>'
                         data-area='<%#: FormatArea(Eval("Area")) %>'
@@ -63,7 +81,7 @@
                         <div class="property-image-wrapper">
 
                             <div class="property-badge-row">
-                                <span class="property-tag"><%#: TypeLabel(Eval("PropertyType"), Eval("Status")) %></span>
+                                <span class="property-tag"><%#: TypeLabel(Eval("PropertyType"), Eval("Status"), Eval("ListingType")) %></span>
                                 <span class="photo-count-badge">
                                     <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" /><circle cx="12" cy="13" r="4" /></svg>
                                     <%#: PhotoCount(Eval("Photo1"), Eval("Photo2"), Eval("Photo3")) %>
@@ -75,7 +93,7 @@
                                 class="property-img card-main-img"
                                 loading="lazy" />
 
-                            <div class="property-price"><%#: FormatPrice(Eval("Price")) %></div>
+                            <div class="property-price"><%#: PriceLabel(Eval("Price"), Eval("ListingType")) %></div>
 
                         </div>
 
@@ -187,6 +205,8 @@
 
                     <a href="Inquiry.aspx" class="btn btn-primary" id="modal-inquire-direct-btn">Inquire About This Residence</a>
 
+                    <a href="EMICalculator.aspx" class="btn btn-outline" id="modal-emi-btn" style="margin-left: 0.75rem;">Calculate EMI</a>
+
                 </div>
 
             </div>
@@ -266,6 +286,16 @@
                 document.getElementById("modal-inquire-direct-btn").href =
                     "Inquiry.aspx?Property=" + encodeURIComponent(d.title || "");
 
+                // EMI only makes sense for properties that are for sale
+                var emiBtn = document.getElementById("modal-emi-btn");
+
+                if (d.listing === "sale") {
+                    emiBtn.href = "EMICalculator.aspx?PropertyID=" + encodeURIComponent(d.id || "");
+                    emiBtn.style.display = "";
+                } else {
+                    emiBtn.style.display = "none";
+                }
+
                 modal.classList.add("active");
                 document.body.style.overflow = "hidden";
             }
@@ -336,6 +366,10 @@
         .properties-grid {
             display: grid;
             width: 100%;
+        }
+
+        .listing-filter {
+            margin-top: -1rem;
         }
 
         a.filter-btn {

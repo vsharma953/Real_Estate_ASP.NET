@@ -59,7 +59,7 @@ namespace Real_Estate.SiteAdmin
         {
             getcon();
 
-            string query = "SELECT Properties.PropertyID, Properties.Title, Properties.AgentID, ISNULL(Agents.FullName, 'Unassigned') AS AgentName, Properties.PropertyType, Properties.Price, Properties.Location, Properties.Status FROM Properties LEFT JOIN Agents ON Properties.AgentID = Agents.AgentID";
+            string query = "SELECT Properties.PropertyID, Properties.Title, Properties.AgentID, ISNULL(Agents.FullName, 'Unassigned') AS AgentName, Properties.PropertyType, Properties.ListingType, Properties.Price, Properties.Location, Properties.Status FROM Properties LEFT JOIN Agents ON Properties.AgentID = Agents.AgentID";
 
             if (ddlAgentFilter.SelectedValue == "-1")
             {

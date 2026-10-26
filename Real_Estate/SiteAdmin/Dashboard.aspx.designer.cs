@@ -20,6 +20,10 @@ namespace Real_Estate.SiteAdmin
 
         protected global::System.Web.UI.WebControls.Literal litTotalProperties;
 
+        protected global::System.Web.UI.WebControls.Literal litForSale;
+
+        protected global::System.Web.UI.WebControls.Literal litForRent;
+
         protected global::System.Web.UI.WebControls.Literal litTotalInquiries;
 
         /// <summary>

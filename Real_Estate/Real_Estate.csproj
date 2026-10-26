@@ -87,6 +87,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EMICalculator.aspx" />
     <Content Include="Inquiry.aspx" />
     <Content Include="js\script.js" />
     <Content Include="Properties.aspx" />
@@ -192,6 +193,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EMICalculator.aspx.cs">
+      <DependentUpon>EMICalculator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EMICalculator.aspx.designer.cs">
+      <DependentUpon>EMICalculator.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inquiry.aspx.cs">
       <DependentUpon>Inquiry.aspx</DependentUpon>

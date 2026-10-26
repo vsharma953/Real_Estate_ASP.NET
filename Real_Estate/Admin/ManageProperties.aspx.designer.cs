@@ -96,6 +96,15 @@ namespace Real_Estate.Admin
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
 
         /// <summary>
+        /// ddlListingType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlListingType;
+
+        /// <summary>
         /// fuPhoto1 control.
         /// </summary>
         /// <remarks>

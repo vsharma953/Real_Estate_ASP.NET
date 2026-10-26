@@ -101,6 +101,7 @@ namespace Real_Estate.Admin
         {
             txtTitle.Text = "";
             ddlType.SelectedIndex = 0;
+            ddlListingType.SelectedIndex = 0;
             txtPrice.Text = "";
             txtLocation.Text = "";
             txtBedrooms.Text = "";
@@ -126,10 +127,11 @@ namespace Real_Estate.Admin
 
                 cmd = new SqlCommand(
                     "INSERT INTO Properties " +
-                    "(Title, PropertyType, Price, Location, Bedrooms, Bathrooms, Area, Status, Description, Photo1, Photo2, Photo3, AgentID) " +
+                    "(Title, PropertyType, ListingType, Price, Location, Bedrooms, Bathrooms, Area, Status, Description, Photo1, Photo2, Photo3, AgentID) " +
                     "VALUES('" +
                     txtTitle.Text + "','" +
                     ddlType.SelectedValue + "','" +
+                    ddlListingType.SelectedValue + "','" +
                     txtPrice.Text + "','" +
                     txtLocation.Text + "','" +
                     txtBedrooms.Text + "','" +
@@ -158,7 +160,7 @@ namespace Real_Estate.Admin
 
                 getcon();
 
-                string query = "UPDATE Properties SET " + "Title='" + txtTitle.Text + "'," + "PropertyType='" + ddlType.SelectedValue + "'," + "Price='" + txtPrice.Text + "'," + "Location='" + txtLocation.Text + "'," + "Bedrooms='" + txtBedrooms.Text + "'," + "Bathrooms='" + txtBathrooms.Text + "'," + "Area='" + txtArea.Text + "'," + "Status='" + ddlStatus.SelectedValue + "'," + "Description='" + txtDescription.Text + "'";
+                string query = "UPDATE Properties SET " + "Title='" + txtTitle.Text + "'," + "PropertyType='" + ddlType.SelectedValue + "'," + "ListingType='" + ddlListingType.SelectedValue + "'," + "Price='" + txtPrice.Text + "'," + "Location='" + txtLocation.Text + "'," + "Bedrooms='" + txtBedrooms.Text + "'," + "Bathrooms='" + txtBathrooms.Text + "'," + "Area='" + txtArea.Text + "'," + "Status='" + ddlStatus.SelectedValue + "'," + "Description='" + txtDescription.Text + "'";
                  
                 if (fnm1 != "")
                 {
@@ -234,6 +236,10 @@ namespace Real_Estate.Admin
             {
                 txtTitle.Text = ds.Tables[0].Rows[0]["Title"].ToString();
                 ddlType.SelectedValue = ds.Tables[0].Rows[0]["PropertyType"].ToString();
+
+                string lt = ds.Tables[0].Rows[0]["ListingType"].ToString().Trim();
+                ddlListingType.SelectedIndex = lt.Equals("Rent", StringComparison.OrdinalIgnoreCase) ? 1 : 0;
+
                 txtPrice.Text = ds.Tables[0].Rows[0]["Price"].ToString();
                 txtLocation.Text = ds.Tables[0].Rows[0]["Location"].ToString();
                 txtBedrooms.Text = ds.Tables[0].Rows[0]["Bedrooms"].ToString();
@@ -250,5 +256,6 @@ namespace Real_Estate.Admin
         {
             clear();
         }
+
     }
 }

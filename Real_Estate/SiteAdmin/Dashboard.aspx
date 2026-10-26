@@ -92,6 +92,14 @@
             <p class="metric-value"><asp:Literal ID="litTotalProperties" runat="server" Text="0"></asp:Literal></p>
         </div>
         <div class="metric-card">
+            <p class="metric-title">Properties For Sale</p>
+            <p class="metric-value"><asp:Literal ID="litForSale" runat="server" Text="0"></asp:Literal></p>
+        </div>
+        <div class="metric-card">
+            <p class="metric-title">Properties For Rent</p>
+            <p class="metric-value"><asp:Literal ID="litForRent" runat="server" Text="0"></asp:Literal></p>
+        </div>
+        <div class="metric-card">
             <p class="metric-title">Total Inquiries</p>
             <p class="metric-value"><asp:Literal ID="litTotalInquiries" runat="server" Text="0"></asp:Literal></p>
         </div>

@@ -35,6 +35,21 @@ namespace Real_Estate
         protected global::System.Web.UI.WebControls.LinkButton lnkTownhouse;
 
         /// <summary>
+        /// lnkListAll control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.LinkButton lnkListAll;
+
+        /// <summary>
+        /// lnkForSale control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.LinkButton lnkForSale;
+
+        /// <summary>
+        /// lnkForRent control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.LinkButton lnkForRent;
+
+        /// <summary>
         /// pnlEmpty control.
         /// </summary>
         protected global::System.Web.UI.WebControls.Panel pnlEmpty;

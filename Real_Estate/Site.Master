@@ -61,6 +61,11 @@
                         class="nav-link">Residences
 
                     </a>
+                    <a href="EMICalculator.aspx"
+                        class="nav-link">EMI Calculator
+
+                    </a>
+
                     <a href="Services.aspx"
                         class="nav-link">Services
 
@@ -207,6 +212,11 @@
 
                             <li>
                                 <a href="Properties.aspx">Residences
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="EMICalculator.aspx">EMI Calculator
                                 </a>
                             </li>
 

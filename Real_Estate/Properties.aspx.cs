@@ -28,6 +28,12 @@ namespace Real_Estate
             if (!IsPostBack)
             {
                 ViewState["Filter"] = "all";
+
+                // Properties.aspx?Listing=sale or ?Listing=rent opens straight on that list
+                string l = (Request.QueryString["Listing"] ?? "").ToLower();
+
+                ViewState["Listing"] = (l == "sale" || l == "rent") ? l : "all";
+
                 gridfield();
             }
         }
@@ -43,17 +49,39 @@ namespace Real_Estate
         void gridfield()
         {
             string filter = Convert.ToString(ViewState["Filter"]);
+            string listing = Convert.ToString(ViewState["Listing"]);
+
+            if (filter != "villa" && filter != "penthouse" && filter != "townhouse")
+            {
+                filter = "all";
+            }
+
+            if (listing != "sale" && listing != "rent")
+            {
+                listing = "all";
+            }
+
+            string clause = "";
+
+            if (filter != "all")
+            {
+                clause = "LOWER(LTRIM(RTRIM(PropertyType))) = '" + filter + "'";
+            }
+
+            if (listing != "all")
+            {
+                clause += (clause == "" ? "" : " AND ") + "LOWER(LTRIM(RTRIM(ListingType))) = '" + listing + "'";
+            }
 
             getcon();
 
-            if (filter == "villa" || filter == "penthouse" || filter == "townhouse")
+            if (clause != "")
             {
-                cmd = new SqlCommand("SELECT * FROM Properties WHERE LOWER(LTRIM(RTRIM(PropertyType))) = '" + filter + "' ORDER BY PropertyID DESC", con);
+                cmd = new SqlCommand("SELECT * FROM Properties WHERE " + clause + " ORDER BY PropertyID DESC", con);
                 da = new SqlDataAdapter(cmd);
             }
             else
             {
-                filter = "all";
                 da = new SqlDataAdapter("SELECT * FROM Properties ORDER BY PropertyID DESC", con);
             }
 
@@ -71,26 +99,33 @@ namespace Real_Estate
 
             if (!hasRows)
             {
-                if (filter == "all")
+                string what = filter == "all" ? "residences" : filter + "s";
+                string forWhat = listing == "sale" ? " for sale" : (listing == "rent" ? " for rent" : "");
+
+                if (filter == "all" && listing == "all")
                 {
                     lblEmpty.Text = "No residences have been listed yet. Please check back soon.";
                 }
                 else
                 {
-                    lblEmpty.Text = "No " + filter + "s are listed right now. Please check back soon.";
+                    lblEmpty.Text = "No " + what + forWhat + " are listed right now. Please check back soon.";
                 }
             }
 
-            markActive(filter);
+            markActive(filter, listing);
         }
 
 
-        void markActive(string filter)
+        void markActive(string filter, string listing)
         {
             lnkAll.CssClass = "filter-btn" + (filter == "all" ? " active" : "");
             lnkVilla.CssClass = "filter-btn" + (filter == "villa" ? " active" : "");
             lnkPenthouse.CssClass = "filter-btn" + (filter == "penthouse" ? " active" : "");
             lnkTownhouse.CssClass = "filter-btn" + (filter == "townhouse" ? " active" : "");
+
+            lnkListAll.CssClass = "filter-btn" + (listing == "all" ? " active" : "");
+            lnkForSale.CssClass = "filter-btn" + (listing == "sale" ? " active" : "");
+            lnkForRent.CssClass = "filter-btn" + (listing == "rent" ? " active" : "");
         }
 
 
@@ -104,6 +139,20 @@ namespace Real_Estate
             }
 
             ViewState["Filter"] = f;
+
+            gridfield();
+        }
+
+        protected void Listing_Command(object sender, CommandEventArgs e)
+        {
+            string l = Convert.ToString(e.CommandArgument).ToLower();
+
+            if (l != "sale" && l != "rent")
+            {
+                l = "all";
+            }
+
+            ViewState["Listing"] = l;
 
             gridfield();
         }
@@ -172,7 +221,15 @@ namespace Real_Estate
             return sb.ToString();
         }
 
-        protected string TypeLabel(object type, object status)
+        // "sale" or "rent" - anything blank/unknown counts as sale (the column default)
+        protected string ListingKey(object listing)
+        {
+            string l = Convert.ToString(listing).Trim();
+
+            return l.Equals("Rent", StringComparison.OrdinalIgnoreCase) ? "rent" : "sale";
+        }
+
+        protected string TypeLabel(object type, object status, object listing)
         {
             string t = Convert.ToString(type).Trim();
 
@@ -191,9 +248,27 @@ namespace Real_Estate
             {
                 t += " \u00B7 Sold";
             }
+            else
+            {
+                t += ListingKey(listing) == "rent" ? " \u00B7 For Rent" : " \u00B7 For Sale";
+            }
 
             return t;
         }
+
+        // price for display - rentals are shown per month
+        protected string PriceLabel(object price, object listing)
+        {
+            string p = FormatPrice(price);
+
+            if (ListingKey(listing) == "rent" && !p.Contains("/ month") && !p.Equals("Price on request"))
+            {
+                p += " / month";
+            }
+
+            return p;
+        }
+
         protected string FormatPrice(object price)
         {
             string raw = Convert.ToString(price).Trim();
