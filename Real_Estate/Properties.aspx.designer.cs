@@ -15,6 +15,31 @@ namespace Real_Estate
     {
 
         /// <summary>
+        /// pnlSearch control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Panel pnlSearch;
+
+        /// <summary>
+        /// txtSearch control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
+
+        /// <summary>
+        /// btnSearch control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.LinkButton btnSearch;
+
+        /// <summary>
+        /// lblResults control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.Label lblResults;
+
+        /// <summary>
+        /// lnkClearSearch control.
+        /// </summary>
+        protected global::System.Web.UI.WebControls.LinkButton lnkClearSearch;
+
+        /// <summary>
         /// lnkAll control.
         /// </summary>
         protected global::System.Web.UI.WebControls.LinkButton lnkAll;

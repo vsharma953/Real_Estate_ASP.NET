@@ -15,6 +15,20 @@
                 <p>Featuring Villas, Penthouses, and Townhouses across unique countries.</p>
             </div>
 
+            <asp:Panel ID="pnlSearch" runat="server" DefaultButton="btnSearch" CssClass="search-bar search-bar-inline reveal">
+                <svg viewBox="0 0 24 24" class="search-icon"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" MaxLength="100"
+                    placeholder="Search by city, country, villa, penthouse..."></asp:TextBox>
+                <asp:LinkButton ID="btnSearch" runat="server" CssClass="btn btn-accent search-btn"
+                    OnClick="Search_Click" CausesValidation="false">Search</asp:LinkButton>
+            </asp:Panel>
+
+            <p class="search-results-line">
+                <asp:Label ID="lblResults" runat="server"></asp:Label>
+                <asp:LinkButton ID="lnkClearSearch" runat="server" Visible="false" CssClass="search-clear"
+                    OnClick="ClearSearch_Click" CausesValidation="false">Clear search</asp:LinkButton>
+            </p>
+
             <div class="properties-filter reveal">
 
                 <asp:LinkButton ID="lnkAll" runat="server" CssClass="filter-btn active"
@@ -356,6 +370,18 @@
         });
 
     </script>
+
+    <style>
+        .search-bar { display: flex; align-items: center; gap: .5rem; max-width: 640px; margin: 0 auto 1.5rem; padding: .4rem .4rem .4rem 1rem; background: #fff; border: 1px solid var(--border, #ddd); border-radius: 999px; box-shadow: 0 6px 24px rgba(0,0,0,.12); }
+        .search-bar .search-icon { width: 20px; height: 20px; flex: none; fill: none; stroke: #888; stroke-width: 2; stroke-linecap: round; }
+        .search-bar .search-input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 1rem; padding: .6rem .25rem; color: #222; }
+        .search-bar .search-btn { flex: none; border-radius: 999px; padding: .65rem 1.5rem; margin: 0; text-decoration: none; cursor: pointer; }
+        .search-bar:focus-within { border-color: var(--accent, #b08d57); }
+        .search-results-line { text-align: center; margin: 0 0 1.25rem; color: var(--text-secondary, #666); }
+        .search-results-line:empty { display: none; }
+        .search-clear { margin-left: .75rem; color: var(--accent, #b08d57); font-weight: 600; text-decoration: underline; cursor: pointer; }
+        @media (max-width: 480px) { .search-bar { padding-left: .75rem; } .search-bar .search-btn { padding: .6rem 1rem; } }
+    </style>
 
     <style>
         /* DataList (Flow layout) puts a <br /> after each item - hide it so the CSS grid stays clean */

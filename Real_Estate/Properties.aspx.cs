@@ -33,6 +33,17 @@ namespace Real_Estate
 
                 ViewState["Listing"] = (l == "sale" || l == "rent") ? l : "all";
 
+                // Properties.aspx?Search=... comes from the search bar on the home page
+                string q = (Request.QueryString["Search"] ?? "").Trim();
+
+                if (q.Length > 100)
+                {
+                    q = q.Substring(0, 100);
+                }
+
+                ViewState["Search"] = q;
+                txtSearch.Text = q;
+
                 gridfield();
             }
         }
@@ -61,28 +72,45 @@ namespace Real_Estate
             }
 
             string clause = "";
+            SqlCommand c = new SqlCommand();
 
             if (filter != "all")
             {
-                clause = "LOWER(LTRIM(RTRIM(PropertyType))) = '" + filter + "'";
+                clause = "LOWER(LTRIM(RTRIM(PropertyType))) = @filter";
+                c.Parameters.AddWithValue("@filter", filter);
             }
 
             if (listing != "all")
             {
-                clause += (clause == "" ? "" : " AND ") + "LOWER(LTRIM(RTRIM(ListingType))) = '" + listing + "'";
+                clause += (clause == "" ? "" : " AND ") + "LOWER(LTRIM(RTRIM(ListingType))) = @listing";
+                c.Parameters.AddWithValue("@listing", listing);
+            }
+
+            // every word typed must appear somewhere in title / location / description / type / listing
+            string search = Convert.ToString(ViewState["Search"]).Trim();
+
+            string[] terms = search.Length == 0
+                ? new string[0]
+                : search.Split(new[] { ' ', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < terms.Length && i < 6; i++)
+            {
+                string pn = "@t" + i;
+                string like = "%" + terms[i].Replace("[", "[[]").Replace("%", "[%]").Replace("_", "[_]") + "%";
+
+                clause += (clause == "" ? "" : " AND ") +
+                    "(Title LIKE " + pn + " OR Location LIKE " + pn + " OR Description LIKE " + pn +
+                    " OR PropertyType LIKE " + pn + " OR ListingType LIKE " + pn + ")";
+
+                c.Parameters.AddWithValue(pn, like);
             }
 
             getcon();
 
-            if (clause != "")
-            {
-                cmd = new SqlCommand("SELECT * FROM Properties WHERE " + clause + " ORDER BY PropertyID DESC", con);
-                da = new SqlDataAdapter(cmd);
-            }
-            else
-            {
-                da = new SqlDataAdapter("SELECT * FROM Properties ORDER BY PropertyID DESC", con);
-            }
+            c.Connection = con;
+            c.CommandText = "SELECT * FROM Properties" + (clause != "" ? " WHERE " + clause : "") + " ORDER BY PropertyID DESC";
+            cmd = c;
+            da = new SqlDataAdapter(cmd);
 
             ds = new DataSet();
             da.Fill(ds);
@@ -101,7 +129,11 @@ namespace Real_Estate
                 string what = filter == "all" ? "residences" : filter + "s";
                 string forWhat = listing == "sale" ? " for sale" : (listing == "rent" ? " for rent" : "");
 
-                if (filter == "all" && listing == "all")
+                if (search.Length > 0)
+                {
+                    lblEmpty.Text = "No " + what + forWhat + " match \u201C" + HttpUtility.HtmlEncode(search) + "\u201D. Try a different city, country or property type.";
+                }
+                else if (filter == "all" && listing == "all")
                 {
                     lblEmpty.Text = "No residences have been listed yet. Please check back soon.";
                 }
@@ -110,6 +142,12 @@ namespace Real_Estate
                     lblEmpty.Text = "No " + what + forWhat + " are listed right now. Please check back soon.";
                 }
             }
+
+            lblResults.Text = search.Length == 0 ? "" :
+                (hasRows ? ds.Tables[0].Rows.Count + (ds.Tables[0].Rows.Count == 1 ? " result" : " results") : "No results") +
+                " for \u201C" + HttpUtility.HtmlEncode(search) + "\u201D";
+
+            lnkClearSearch.Visible = search.Length > 0;
 
             markActive(filter, listing);
         }
@@ -127,6 +165,23 @@ namespace Real_Estate
             lnkForRent.CssClass = "filter-btn" + (listing == "rent" ? " active" : "");
         }
 
+
+        protected void Search_Click(object sender, EventArgs e)
+        {
+            string q = (txtSearch.Text ?? "").Trim();
+
+            ViewState["Search"] = q.Length > 100 ? q.Substring(0, 100) : q;
+
+            gridfield();
+        }
+
+        protected void ClearSearch_Click(object sender, EventArgs e)
+        {
+            ViewState["Search"] = "";
+            txtSearch.Text = "";
+
+            gridfield();
+        }
 
         protected void Filter_Command(object sender, CommandEventArgs e)
         {

@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\",
+  "WorkspaceRootPath": "C:\\Users\\Dell\\Desktop\\real state project\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\emicalculator.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\emicalculator.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -36,6 +37,33 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\real_estate\\siteadmin\\css\\admin-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+=======
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\dell\\desktop\\real state project\\real_estate\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\dell\\desktop\\real state project\\real_estate\\properties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\properties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\dell\\desktop\\real state project\\real_estate\\properties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\properties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\dell\\desktop\\real state project\\real_estate\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Dell\\Desktop\\real state project\\real_estate\\admin\\manageproperties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\admin\\manageproperties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Dell\\Desktop\\real state project\\real_estate\\admin\\manageproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\admin\\manageproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Dell\\Desktop\\real state project\\real_estate\\siteadmin\\css\\admin-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
       "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\siteadmin\\css\\admin-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
@@ -51,6 +79,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
+<<<<<<< HEAD
               "Title": "EMICalculator.aspx",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\EMICalculator.aspx",
               "RelativeDocumentMoniker": "Real_Estate\\EMICalculator.aspx",
@@ -59,11 +88,35 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2026-10-27T03:28:21.266Z",
+=======
+              "Title": "Properties.aspx",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Properties.aspx",
+              "RelativeDocumentMoniker": "Real_Estate\\Properties.aspx",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Properties.aspx",
+              "RelativeToolTip": "Real_Estate\\Properties.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-10-27T03:03:12.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "Real_Estate\\Default.aspx.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Default.aspx.cs",
+              "RelativeToolTip": "Real_Estate\\Default.aspx.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:02:48.91Z",
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+<<<<<<< HEAD
               "Title": "EMICalculator.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\EMICalculator.aspx.cs",
               "RelativeDocumentMoniker": "Real_Estate\\EMICalculator.aspx.cs",
@@ -85,11 +138,22 @@
               "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2026-10-27T03:07:28.906Z",
+=======
+              "Title": "Default.aspx",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Default.aspx",
+              "RelativeDocumentMoniker": "Real_Estate\\Default.aspx",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Default.aspx",
+              "RelativeToolTip": "Real_Estate\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-10-27T02:59:23.172Z",
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+<<<<<<< HEAD
               "Title": "Account.aspx",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Account.aspx",
               "RelativeDocumentMoniker": "Real_Estate\\Account.aspx",
@@ -116,10 +180,12 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
+=======
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
               "Title": "ManageProperties.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Admin\\ManageProperties.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Admin\\ManageProperties.aspx.cs",
               "RelativeDocumentMoniker": "Real_Estate\\Admin\\ManageProperties.aspx.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Admin\\ManageProperties.aspx.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Admin\\ManageProperties.aspx.cs",
               "RelativeToolTip": "Real_Estate\\Admin\\ManageProperties.aspx.cs",
               "ViewState": "AgIAAOMAAAAAAAAAAAAYwAIBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -128,11 +194,15 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 7,
+=======
+              "DocumentIndex": 5,
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
               "Title": "ManageProperties.aspx",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Admin\\ManageProperties.aspx",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Admin\\ManageProperties.aspx",
               "RelativeDocumentMoniker": "Real_Estate\\Admin\\ManageProperties.aspx",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Admin\\ManageProperties.aspx",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Admin\\ManageProperties.aspx",
               "RelativeToolTip": "Real_Estate\\Admin\\ManageProperties.aspx",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2026-10-26T12:44:42.724Z",
@@ -140,24 +210,36 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 3,
+=======
+              "DocumentIndex": 2,
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
               "Title": "Properties.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Properties.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Properties.aspx.cs",
               "RelativeDocumentMoniker": "Real_Estate\\Properties.aspx.cs",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Properties.aspx.cs",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\Properties.aspx.cs",
               "RelativeToolTip": "Real_Estate\\Properties.aspx.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAFEAAABAyszMzAwswJgAAAAoAAAAAAAAAA==",
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-26T12:39:14.622Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 8,
+=======
+              "DocumentIndex": 6,
+>>>>>>> 6b26707f0553ffc29f3236af7c4bc9f32f1f7e0d
               "Title": "admin-style.css",
-              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\SiteAdmin\\css\\admin-style.css",
+              "DocumentMoniker": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\SiteAdmin\\css\\admin-style.css",
               "RelativeDocumentMoniker": "Real_Estate\\SiteAdmin\\css\\admin-style.css",
-              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\SiteAdmin\\css\\admin-style.css",
+              "ToolTip": "C:\\Users\\Dell\\Desktop\\real state project\\Real_Estate\\SiteAdmin\\css\\admin-style.css",
               "RelativeToolTip": "Real_Estate\\SiteAdmin\\css\\admin-style.css",
               "ViewState": "AgIAAJ8AAAAAAAAAAAAAABwAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
