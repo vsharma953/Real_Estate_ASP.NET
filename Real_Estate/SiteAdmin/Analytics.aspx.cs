@@ -121,7 +121,7 @@ namespace Real_Estate.SiteAdmin
             }
             else
             {
-                lblNote.Text = "Inquiries table me koi date column (DateTime) nahi mila, isliye monthly inquiries chart empty hai. Inquiries me InquiryDate (DateTime, default GETDATE()) column add karein.";
+                lblNote.Text = "There is no Inquires.";
                 lblNote.Visible = true;
             }
 

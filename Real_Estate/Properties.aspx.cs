@@ -29,7 +29,6 @@ namespace Real_Estate
             {
                 ViewState["Filter"] = "all";
 
-                // Properties.aspx?Listing=sale or ?Listing=rent opens straight on that list
                 string l = (Request.QueryString["Listing"] ?? "").ToLower();
 
                 ViewState["Listing"] = (l == "sale" || l == "rent") ? l : "all";
@@ -221,7 +220,6 @@ namespace Real_Estate
             return sb.ToString();
         }
 
-        // "sale" or "rent" - anything blank/unknown counts as sale (the column default)
         protected string ListingKey(object listing)
         {
             string l = Convert.ToString(listing).Trim();

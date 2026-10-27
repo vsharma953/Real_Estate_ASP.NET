@@ -15,6 +15,93 @@
     </asp:ContentPlaceHolder>
 
     <style>
+        /* ====================================================
+           NAVBAR: identical font everywhere + zero underlines,
+           including any .active state or ::before/::after
+           pseudo-element underline animation from style.css
+        ==================================================== */
+        .nav-menu a,
+        .nav-menu a.nav-link,
+        .nav-menu a.nav-link.active,
+        .nav-menu button.nav-link,
+        .nav-menu .account-trigger,
+        .nav-menu .account-trigger.active {
+            font-family: inherit;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: #4a4a4a;
+            text-decoration: none;
+            border: none;
+            border-bottom: none;
+            box-shadow: none;
+            outline: none;
+            line-height: 1;
+            background: none;
+            padding: 0;
+            margin: 0;
+            position: relative;
+        }
+
+            .nav-menu a:hover,
+            .nav-menu a:focus,
+            .nav-menu a:active,
+            .nav-menu a.nav-link:hover,
+            .nav-menu a.nav-link:focus,
+            .nav-menu a.nav-link:active,
+            .nav-menu a.nav-link.active,
+            .nav-menu button.nav-link:hover,
+            .nav-menu button.nav-link:focus,
+            .nav-menu .account-trigger:hover,
+            .nav-menu .account-trigger:focus,
+            .nav-menu .account-trigger.active,
+            .nav-menu .account-trigger[aria-expanded="true"] {
+                color: var(--accent, #a3875a);
+                text-decoration: none !important;
+                border: none !important;
+                border-bottom: none !important;
+                box-shadow: none !important;
+                outline: none !important;
+            }
+
+            /* Kill any ::before/::after underline animation
+               (a very common pattern: an absolutely-positioned
+               bar that scales in on hover/active) */
+            .nav-menu a::before,
+            .nav-menu a::after,
+            .nav-menu a.nav-link::before,
+            .nav-menu a.nav-link::after,
+            .nav-menu button.nav-link::before,
+            .nav-menu button.nav-link::after,
+            .nav-menu .account-trigger::before,
+            .nav-menu .account-trigger::after {
+                display: none !important;
+                content: none !important;
+            }
+
+        /* Account dropdown items follow the same base font,
+           but stay normal-case and slightly larger since they
+           sit in a popover, not the top nav bar */
+        .account-dropdown-menu a,
+        .account-dropdown-menu .logout-nav-button {
+            font-family: inherit;
+            text-transform: none;
+            letter-spacing: 0;
+            text-decoration: none;
+            border: none;
+            box-shadow: none;
+            outline: none;
+        }
+
+            .account-dropdown-menu a::before,
+            .account-dropdown-menu a::after,
+            .account-dropdown-menu .logout-nav-button::before,
+            .account-dropdown-menu .logout-nav-button::after {
+                display: none !important;
+                content: none !important;
+            }
+
         .logout-nav-button {
             background: none;
             border: none;
@@ -30,6 +117,114 @@
             .logout-nav-button:hover {
                 color: var(--accent);
             }
+
+        /* ---------- Account dropdown ---------- */
+        .account-nav-item {
+            position: relative;
+        }
+
+        .account-trigger {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+            .account-trigger .chevron {
+                width: 11px;
+                height: 11px;
+                stroke: currentColor;
+                transition: transform 0.18s ease;
+            }
+
+            .account-trigger[aria-expanded="true"] .chevron {
+                transform: rotate(180deg);
+            }
+
+        .account-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 14px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-6px);
+            min-width: 170px;
+            background: #fff;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+            padding: 8px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+            z-index: 60;
+        }
+
+            .account-dropdown-menu.open {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateX(-50%) translateY(0);
+            }
+
+        .account-dropdown-menu a,
+        .account-dropdown-menu .logout-nav-button {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 7px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: left;
+            color: #333;
+        }
+
+            .account-dropdown-menu a:hover {
+                background: #f6f3ee;
+                color: var(--accent, #a3875a);
+            }
+
+        .account-dropdown-menu .logout-nav-button {
+            color: #b40000;
+        }
+
+            .account-dropdown-menu .logout-nav-button:hover {
+                background: #fdf1f1;
+                color: #8f0000;
+            }
+
+        .account-dropdown-menu .menu-divider {
+            height: 1px;
+            background: #ededed;
+            margin: 6px 4px;
+        }
+
+        .account-dropdown-menu svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 900px) {
+            .account-dropdown-menu {
+                position: static;
+                transform: none;
+                box-shadow: none;
+                border: none;
+                padding: 0 0 0 14px;
+                display: none;
+                min-width: 0;
+            }
+
+                .account-dropdown-menu.open {
+                    display: block;
+                }
+
+            .account-trigger .chevron {
+                display: none;
+            }
+        }
     </style>
 
 </head>
@@ -53,7 +248,7 @@
                     id="nav-menu">
 
                     <a href="Default.aspx"
-                        Cssclass="nav-link">Home
+                        class="nav-link">Home
 
                     </a>
 
@@ -98,34 +293,55 @@
                     <asp:Panel
                         ID="pnlAccount"
                         runat="server"
-                        CssClass="nav-item"
+                        CssClass="nav-item account-nav-item"
                         Visible="false"
-                        Style="display: inline;">
+                        Style="display: inline-block;">
 
-                        <a href="Account.aspx"
-                            class="nav-link">Account
+                        <button
+                            type="button"
+                            id="accountTrigger"
+                            class="nav-link account-trigger"
+                            aria-haspopup="true"
+                            aria-expanded="false">
 
-                        </a>
+                            Account
 
-                    </asp:Panel>
+                            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
 
-                    <asp:Panel
-                        ID="pnlLogout"
-                        runat="server"
-                        CssClass="nav-item"
-                        Visible="false"
-                        Style="display: inline;">
+                        </button>
 
-                        <asp:LinkButton
-                            ID="btnLogout"
-                            runat="server"
-                            CssClass="nav-link logout-nav-button"
-                            OnClick="btnLogout_Click"
-                            OnClientClick="return confirmLogout();">
+                        <div class="account-dropdown-menu" id="accountDropdownMenu">
 
-                            Logout
+                            <a href="Account.aspx">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                My Account
+                            </a>
 
-                        </asp:LinkButton>
+                            <div class="menu-divider"></div>
+
+                            <asp:Panel
+                                ID="pnlLogout"
+                                runat="server"
+                                Visible="false"
+                                Style="display: block;">
+
+                                <asp:LinkButton
+                                    ID="btnLogout"
+                                    runat="server"
+                                    CssClass="logout-nav-button"
+                                    OnClick="btnLogout_Click"
+                                    OnClientClick="return confirmLogout();">
+
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                    Logout
+
+                                </asp:LinkButton>
+
+                            </asp:Panel>
+
+                        </div>
 
                     </asp:Panel>
 
@@ -342,6 +558,41 @@
             );
 
         }
+
+        (function () {
+            var trigger = document.getElementById("accountTrigger");
+            var menu = document.getElementById("accountDropdownMenu");
+
+            if (!trigger || !menu) {
+                return;
+            }
+
+            function closeMenu() {
+                menu.classList.remove("open");
+                trigger.setAttribute("aria-expanded", "false");
+            }
+
+            function toggleMenu(e) {
+                e.stopPropagation();
+                var isOpen = menu.classList.toggle("open");
+                trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            }
+
+            trigger.addEventListener("click", toggleMenu);
+
+            document.addEventListener("click", function (e) {
+                if (!menu.contains(e.target) && e.target !== trigger) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener("keydown", function (e) {
+                if (e.key === "Escape") {
+                    closeMenu();
+                }
+            });
+        })();
+
     </script>
 
     <script src='<%= ResolveUrl("~/js/script.js") %>'></script>

@@ -22,7 +22,7 @@ namespace Real_Estate
         {
             if (!IsPostBack)
             {
-                // starting values come from Web.config (appSettings)
+                // starting values come from Web.config (appSettings) - NOT hardcoded in code
                 txtRate.Text = ConfigurationManager.AppSettings["EMI:InterestRate"];
                 txtTenure.Text = ConfigurationManager.AppSettings["EMI:TenureYears"];
                 txtDownPayment.Text = ConfigurationManager.AppSettings["EMI:DownPaymentPercent"];
@@ -53,6 +53,7 @@ namespace Real_Estate
         {
             getcon();
 
+            // No user input here, so this static query is safe as-is
             da = new SqlDataAdapter("SELECT PropertyID, Title, Location, Price FROM Properties WHERE LOWER(LTRIM(RTRIM(ListingType))) = 'sale' AND LOWER(LTRIM(ISNULL(Status, ''))) <> 'sold' ORDER BY Title", con);
 
             ds = new DataSet();
@@ -116,9 +117,23 @@ namespace Real_Estate
                 return;
             }
 
+            // Validate the dropdown value is actually a number before it
+            // ever touches a query - a crafted POST could put anything here.
+            int propertyId;
+
+            if (!int.TryParse(ddlProperty.SelectedValue, out propertyId))
+            {
+                return;
+            }
+
             getcon();
 
-            cmd = new SqlCommand("SELECT Price FROM Properties WHERE PropertyID='" + ddlProperty.SelectedValue + "'", con);
+            // Parameterized query: the value is passed as data, never
+            // concatenated into the SQL text, so it can't be used to
+            // inject extra SQL regardless of what the client sends.
+            cmd = new SqlCommand("SELECT Price FROM Properties WHERE PropertyID = '"+propertyId+"'", con);
+            cmd.Parameters.Add("propertyId", SqlDbType.Int).Value = propertyId;
+
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
             da.Fill(ds);

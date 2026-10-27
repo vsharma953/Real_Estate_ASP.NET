@@ -3,19 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\emicalculator.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\emicalculator.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\emicalculator.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\emicalculator.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\site.master||{B30AFBFF-D992-43B7-B62D-2642580A2883}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\properties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\properties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\admin\\manageproperties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\account.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\account.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\real_estate\\siteadmin\\analytics.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\siteadmin\\analytics.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\real_estate\\admin\\manageproperties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\admin\\manageproperties.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\admin\\manageproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\real_estate\\admin\\manageproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
       "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\admin\\manageproperties.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|c:\\users\\asus\\onedrive\\documents\\desktop\\real_estate_project\\real_estate\\siteadmin\\css\\admin-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\real_estate\\siteadmin\\css\\admin-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{9CA91D04-3F59-4759-8A2D-B5E087DB56DF}|Real_Estate\\Real_Estate.csproj|solutionrelative:real_estate\\siteadmin\\css\\admin-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
@@ -26,11 +46,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "EMICalculator.aspx",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\EMICalculator.aspx",
+              "RelativeDocumentMoniker": "Real_Estate\\EMICalculator.aspx",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\EMICalculator.aspx",
+              "RelativeToolTip": "Real_Estate\\EMICalculator.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-10-27T03:28:21.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EMICalculator.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\EMICalculator.aspx.cs",
+              "RelativeDocumentMoniker": "Real_Estate\\EMICalculator.aspx.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\EMICalculator.aspx.cs",
+              "RelativeToolTip": "Real_Estate\\EMICalculator.aspx.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowDwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T03:26:05.622Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Site.Master",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Site.Master",
+              "RelativeDocumentMoniker": "Real_Estate\\Site.Master",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Site.Master",
+              "RelativeToolTip": "Real_Estate\\Site.Master",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-10-27T03:07:28.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Account.aspx",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Account.aspx",
+              "RelativeDocumentMoniker": "Real_Estate\\Account.aspx",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Account.aspx",
+              "RelativeToolTip": "Real_Estate\\Account.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2026-10-27T02:57:56.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Analytics.aspx.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\SiteAdmin\\Analytics.aspx.cs",
+              "RelativeDocumentMoniker": "Real_Estate\\SiteAdmin\\Analytics.aspx.cs",
+              "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\SiteAdmin\\Analytics.aspx.cs",
+              "RelativeToolTip": "Real_Estate\\SiteAdmin\\Analytics.aspx.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAAAA0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-27T01:15:00.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "ManageProperties.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Admin\\ManageProperties.aspx.cs",
               "RelativeDocumentMoniker": "Real_Estate\\Admin\\ManageProperties.aspx.cs",
@@ -43,33 +128,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": "ManageProperties.aspx",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Admin\\ManageProperties.aspx",
               "RelativeDocumentMoniker": "Real_Estate\\Admin\\ManageProperties.aspx",
               "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Admin\\ManageProperties.aspx",
               "RelativeToolTip": "Real_Estate\\Admin\\ManageProperties.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
               "WhenOpened": "2026-10-26T12:44:42.724Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Properties.aspx.cs",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Properties.aspx.cs",
               "RelativeDocumentMoniker": "Real_Estate\\Properties.aspx.cs",
               "ToolTip": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\Properties.aspx.cs",
               "RelativeToolTip": "Real_Estate\\Properties.aspx.cs",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAkwA0BAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-26T12:39:14.622Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "admin-style.css",
               "DocumentMoniker": "C:\\Users\\Asus\\OneDrive\\Documents\\Desktop\\Real_Estate_Project\\Real_Estate\\SiteAdmin\\css\\admin-style.css",
               "RelativeDocumentMoniker": "Real_Estate\\SiteAdmin\\css\\admin-style.css",
