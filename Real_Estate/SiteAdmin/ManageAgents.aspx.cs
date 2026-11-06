@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Web.UI.WebControls;
 
 namespace Real_Estate.SiteAdmin
@@ -36,7 +37,7 @@ namespace Real_Estate.SiteAdmin
         {
             getcon();
 
-            da = new SqlDataAdapter("SELECT Agents.AgentID, Agents.FullName, Agents.Email, Agents.Phone, Agents.Status, (SELECT COUNT(*) FROM Properties WHERE Properties.AgentID = Agents.AgentID) AS Listings FROM Agents ORDER BY Agents.AgentID DESC", con);
+            da = new SqlDataAdapter("SELECT Agents.AgentID, Agents.FullName, Agents.Email, Agents.Phone, Agents.Status, Agents.CommissionPercent, (SELECT COUNT(*) FROM Properties WHERE Properties.AgentID = Agents.AgentID) AS Listings FROM Agents ORDER BY Agents.AgentID DESC", con);
 
             ds = new DataSet();
             da.Fill(ds);
@@ -55,6 +56,7 @@ namespace Real_Estate.SiteAdmin
             txtPhone.Text = "";
             txtPassword.Text = "";
             ddlStatus.SelectedIndex = 0;
+            txtCommission.Text = "2";
             btnSave.Text = "Save";
             ViewState["AgentID"] = null;
             lblMessage.Text = "";
@@ -67,6 +69,16 @@ namespace Real_Estate.SiteAdmin
             if (txtFullName.Text == "" || txtEmail.Text == "")
             {
                 lblMessage.Text = "Full name and email are required.";
+                lblMessage.Visible = true;
+                return;
+            }
+
+            // commission is a percentage between 0 and 100
+            decimal commission;
+
+            if (!decimal.TryParse(txtCommission.Text.Trim(), NumberStyles.Number, CultureInfo.InvariantCulture, out commission) || commission < 0 || commission > 100)
+            {
+                lblMessage.Text = "Commission must be a number between 0 and 100.";
                 lblMessage.Visible = true;
                 return;
             }
@@ -95,13 +107,14 @@ namespace Real_Estate.SiteAdmin
                     return;
                 }
 
-                cmd = new SqlCommand("INSERT INTO Agents(FullName, Email, Phone, Password, Status) " +
+                cmd = new SqlCommand("INSERT INTO Agents(FullName, Email, Phone, Password, Status, CommissionPercent) " +
                     "VALUES('" +
                     txtFullName.Text + "','" +
                     txtEmail.Text + "','" +
                     txtPhone.Text + "','" +
                     txtPassword.Text + "','" +
-                    ddlStatus.SelectedValue + "')", con);
+                    ddlStatus.SelectedValue + "','" +
+                    commission.ToString(CultureInfo.InvariantCulture) + "')", con);
 
                 cmd.ExecuteNonQuery();
 
@@ -131,7 +144,7 @@ namespace Real_Estate.SiteAdmin
                     return;
                 }
 
-                string query = "UPDATE Agents SET " + "FullName='" + txtFullName.Text + "'," + "Email='" + txtEmail.Text + "'," + "Phone='" + txtPhone.Text + "'," + "Status='" + ddlStatus.SelectedValue + "'";
+                string query = "UPDATE Agents SET " + "FullName='" + txtFullName.Text + "'," + "Email='" + txtEmail.Text + "'," + "Phone='" + txtPhone.Text + "'," + "Status='" + ddlStatus.SelectedValue + "'," + "CommissionPercent='" + commission.ToString(CultureInfo.InvariantCulture) + "'";
 
                 if (txtPassword.Text != "")
                 {
@@ -202,6 +215,7 @@ namespace Real_Estate.SiteAdmin
                 txtEmail.Text = ds.Tables[0].Rows[0]["Email"].ToString();
                 txtPhone.Text = ds.Tables[0].Rows[0]["Phone"].ToString();
                 ddlStatus.SelectedValue = ds.Tables[0].Rows[0]["Status"].ToString();
+                txtCommission.Text = Convert.ToDecimal(ds.Tables[0].Rows[0]["CommissionPercent"]).ToString("0.##", CultureInfo.InvariantCulture);
                 txtPassword.Text = "";
             }
 

@@ -1,105 +1,6 @@
 ﻿<%@ Page Title="Agent Work" Language="C#" MasterPageFile="~/SiteAdmin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="AgentWork.aspx.cs" Inherits="Real_Estate.SiteAdmin.AgentWork" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <style>
-        .manage-box {
-            background: #fff;
-            padding: 30px;
-            border: 1px solid #e5e5e5;
-            border-radius: 8px;
-        }
-
-        .manage-title {
-            margin: 0 0 6px 0;
-            font-size: 28px;
-            color: #222;
-        }
-
-        .manage-subtitle {
-            margin: 0 0 25px 0;
-            color: #777;
-        }
-
-        .filter-row {
-            margin-bottom: 20px;
-        }
-
-            .filter-row label {
-                font-weight: 600;
-                color: #444;
-                margin-right: 10px;
-            }
-
-        .form-control {
-            height: 38px;
-            padding: 7px 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .property-grid {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-            .property-grid th {
-                background: #222;
-                color: #fff;
-                padding: 12px 10px;
-                text-align: left;
-                font-weight: 600;
-            }
-
-            .property-grid td {
-                padding: 10px;
-                border-bottom: 1px solid #e5e5e5;
-                vertical-align: middle;
-            }
-
-            .property-grid tr:hover td {
-                background: #faf9f6;
-            }
-
-        .grid-button {
-            padding: 6px 14px;
-            border: 1px solid #ccc;
-            background: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .delete-button {
-            color: #a33;
-        }
-
-            .delete-button:hover {
-                background: #f8eeee;
-                border-color: #c99;
-            }
-
-        .message {
-            display: block;
-            padding: 10px 12px;
-            background: #f7f3ec;
-            border-left: 3px solid #a98750;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        @media (max-width: 800px) {
-            .manage-box {
-                padding: 20px;
-            }
-
-            .property-grid {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-        }
-    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -109,7 +10,7 @@
         <h2 class="manage-title">Agent Work</h2>
 
         <p class="manage-subtitle">
-            Every property listed across every agent, so you can see what each agent has been working on.
+            Every property listed across every agent, split into sale and rent. Move a listing to another agent when needed.
         </p>
 
         <asp:Label ID="lblMessage" runat="server" Visible="false" CssClass="message"></asp:Label>
@@ -121,7 +22,20 @@
             </asp:DropDownList>
         </div>
 
-        <asp:GridView ID="gvAgentWork" runat="server" AutoGenerateColumns="False" GridLines="None" CssClass="property-grid" OnRowCommand="gvAgentWork_RowCommand" EmptyDataText="No properties have been listed yet.">
+        <div class="tab-bar">
+            <asp:Repeater ID="rptTabs" runat="server" OnItemCommand="rptTabs_ItemCommand">
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkTab" runat="server" CausesValidation="false"
+                        CommandName="Tab" CommandArgument='<%# Eval("Value") %>'
+                        CssClass='<%# IsActiveTab(Eval("Value")) ? "tab-link tab-active" : "tab-link" %>'>
+                        <%#: Eval("Text") %><span class="tab-count"><%#: Eval("Total") %></span>
+                    </asp:LinkButton>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+
+        <div class="table-scroll">
+<asp:GridView ID="gvAgentWork" runat="server" AutoGenerateColumns="False" GridLines="None" CssClass="property-grid" OnRowCommand="gvAgentWork_RowCommand" OnRowDataBound="gvAgentWork_RowDataBound" EmptyDataText="No properties have been listed yet.">
             <Columns>
 
                 <asp:TemplateField HeaderText="ID">
@@ -148,12 +62,6 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Listing">
-                    <ItemTemplate>
-                        <asp:Label ID="lblListing" runat="server" Text='<%# Eval("ListingType") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
                 <asp:TemplateField HeaderText="Price">
                     <ItemTemplate>
                         <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
@@ -172,6 +80,19 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="Inquiries">
+                    <ItemTemplate>
+                        <asp:Label ID="lblInquiries" runat="server" Text='<%# Eval("InquiryCount") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Move To">
+                    <ItemTemplate>
+                        <asp:DropDownList ID="ddlMoveTo" runat="server" CssClass="form-control"></asp:DropDownList>
+                        <asp:Button ID="btnMove" runat="server" Text="Move" CssClass="grid-button" CommandName="MoveRow" CommandArgument='<%# Eval("PropertyID") %>' OnClientClick="return confirm('Move this listing to the selected agent?');" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Remove">
                     <ItemTemplate>
                         <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="grid-button delete-button" CommandName="DeleteRow" CommandArgument='<%# Eval("PropertyID") %>' OnClientClick="return confirm('Remove this listing?');" />
@@ -180,5 +101,6 @@
 
             </Columns>
         </asp:GridView>
+</div>
     </div>
 </asp:Content>

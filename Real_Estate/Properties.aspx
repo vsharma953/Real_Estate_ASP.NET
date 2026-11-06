@@ -298,7 +298,7 @@
                 });
 
                 document.getElementById("modal-inquire-direct-btn").href =
-                    "Inquiry.aspx?Property=" + encodeURIComponent(d.title || "");
+                    "Inquiry.aspx?PropertyID=" + encodeURIComponent(d.id || "");
 
                 // EMI only makes sense for properties that are for sale
                 var emiBtn = document.getElementById("modal-emi-btn");

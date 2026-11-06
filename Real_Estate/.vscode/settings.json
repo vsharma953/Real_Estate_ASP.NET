@@ -1,0 +1,4 @@
+{
+  "dotnet.preferCSharpExtension": true,
+  "cSpell.words": ["getcon", "GETDATE", "ISNULL", "LTRIM", "RTRIM"]
+}

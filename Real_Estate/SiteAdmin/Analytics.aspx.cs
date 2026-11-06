@@ -6,24 +6,39 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Script.Serialization;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.Web.Design;
 
 namespace Real_Estate.SiteAdmin
 {
     public partial class Analytics : System.Web.UI.Page
     {
+
+        SqlConnection con;
+        SqlCommand cmd;
+        SqlDataAdapter da;
+        DataSet ds;
+
         string s = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
 
-        // JSON used by Chart.js in Analytics.aspx
+        private CrystalDecisions.CrystalReports.Engine.ReportDocument cr = new ReportDocument(); 
+        static string Crypath = "";
+
         protected string MonthlyJson = "{\"labels\":[],\"data\":[]}";
         protected string StatusJson = "{\"labels\":[],\"closed\":[],\"pending\":[]}";
         protected string AgentJson = "{\"names\":[],\"listings\":[],\"closed\":[],\"pending\":[],\"revenue\":[]}";
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
             loadReport();
         }
 
+        void getcon()
+        {
+            con = new SqlConnection(s);
+            con.Open();
+        }
 
         DataTable fetch(string query)
         {
@@ -264,6 +279,82 @@ namespace Real_Estate.SiteAdmin
             litPendingSale.Text = salePending.ToString();
             litPendingRent.Text = rentPending.ToString();
             litConversion.Text = (totalProps == 0 ? 0 : totalClosed * 100.0 / totalProps).ToString("0.#") + "%";
+        }
+
+        protected void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+            if (ddlReport.SelectedValue == "")
+            {
+                lblReportMsg.Text = "Please select a report.";
+                lblReportMsg.Visible = true;
+                return;
+            }
+
+            string query = "", tableName = "", rptFile = "", pdfName = "";
+
+            switch (ddlReport.SelectedValue)
+            {
+                case "sales":
+                    query =
+                        "SELECT d.DealID, a.FullName AS AgentName, d.ClientName, d.PropertyTitle, d.PropertyLocation, " +
+                        "d.ListedPrice, d.FinalPrice, d.ClosingDate, d.Status " +
+                        "FROM Deals d INNER JOIN Agents a ON a.AgentID = d.AgentID " +
+                        "WHERE d.DealType = 'sale' AND d.Status IN ('Approved','Paid') ORDER BY a.FullName";
+                    tableName = "SalesReport"; rptFile = "Sales.rpt"; pdfName = "SalesReport";
+                    break;
+
+                case "rental":
+                    query =
+                        "SELECT d.DealID, a.FullName AS AgentName, d.ClientName, d.PropertyTitle, d.PropertyLocation, " +
+                        "d.MonthlyRent, d.SecurityDeposit, d.LeaseStart, d.LeaseEnd " +
+                        "FROM Deals d INNER JOIN Agents a ON a.AgentID = d.AgentID " +
+                        "WHERE d.DealType = 'rent' ORDER BY a.FullName";
+                    tableName = "RentalReport"; rptFile = "Rental.rpt"; pdfName = "RentalReport";
+                    break;
+
+                case "agent":
+                    query =
+                        "SELECT a.FullName AS AgentName, COUNT(d.DealID) AS DealCount, " +
+                        "ISNULL(SUM(CASE WHEN d.DealType = 'sale' THEN d.FinalPrice END), 0) AS SalesValue, " +
+                        "ISNULL(SUM(d.CommissionAmount), 0) AS TotalCommission " +
+                        "FROM Agents a LEFT JOIN Deals d ON d.AgentID = a.AgentID AND d.Status IN ('Approved','Paid') " +
+                        "GROUP BY a.FullName";
+                    tableName = "AgentPerformance"; rptFile = "AgentPerformance.rpt"; pdfName = "AgentPerformance";
+                    break;
+
+                case "commission":
+                    query =
+                        "SELECT d.DealID, a.FullName AS AgentName, d.PropertyTitle, d.FinalPrice, " +
+                        "d.CommissionPercent, d.CommissionAmount, d.Status, d.CommissionPaidOn " +
+                        "FROM Deals d INNER JOIN Agents a ON a.AgentID = d.AgentID " +
+                        "WHERE d.DealType = 'sale' AND d.Status IN ('Approved','Paid') ORDER BY a.FullName";
+                    tableName = "CommissionReport"; rptFile = "Commission.rpt"; pdfName = "CommissionStatement";
+                    break;
+
+                case "inquiry":
+                    query =
+                        "SELECT i.InquiryID, i.FullName AS ClientName, i.Phone, i.Property, i.InquiryDate, i.Status, " +
+                        "ISNULL(a.FullName, 'Unassigned') AS AgentName " +
+                        "FROM Inquiries i LEFT JOIN Properties p ON p.PropertyID = i.PropertyID " +
+                        "LEFT JOIN Agents a ON a.AgentID = ISNULL(i.AssignedAgentID, p.AgentID) " +
+                        "ORDER BY i.Status";
+                    tableName = "InquiryReport"; rptFile = "Inquiry.rpt"; pdfName = "InquiryReport";
+                    break;
+            }
+
+            getcon();
+            da = new SqlDataAdapter(query, con);
+            ds = new DataSet();
+            da.Fill(ds);
+            con.Close();
+            ds.Tables[0].TableName = tableName;
+
+            string path = Server.MapPath("~/" + rptFile);
+            cr.Load(path);
+            cr.SetDataSource(ds.Tables[0]);
+            cr.Refresh();
+            CrystalReportViewer1.ReportSource = cr;
+            cr.ExportToHttpResponse(ExportFormatType.PortableDocFormat, Response, true, pdfName);
         }
     }
 }

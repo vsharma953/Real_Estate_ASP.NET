@@ -2,195 +2,9 @@
 
 <%@ Page Title="Analytics" Language="C#" MasterPageFile="~/SiteAdmin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Analytics.aspx.cs" Inherits="Real_Estate.SiteAdmin.Analytics" %>
 
+<%@ Register assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <style>
-        .report-head {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .report-title {
-            margin: 0 0 6px 0;
-            font-size: 28px;
-            color: #222;
-        }
-
-        .report-subtitle {
-            margin: 0;
-            color: #777;
-        }
-
-        .print-date {
-            display: none;
-        }
-
-        .print-button {
-            padding: 9px 22px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            background: #222;
-            color: #fff;
-        }
-
-            .print-button:hover {
-                background: #a98750;
-            }
-
-        .metrics-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .metric-card {
-            flex: 1;
-            min-width: 170px;
-            padding: 22px;
-            background: #fff;
-            border: 1px solid #EAEAEA;
-            border-radius: 4px;
-        }
-
-        .metric-title {
-            margin: 0;
-            color: #777;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .metric-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: #111;
-            margin: 8px 0 0 0;
-        }
-
-        .chart-row {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .chart-card {
-            flex: 1;
-            min-width: 340px;
-            background: #fff;
-            padding: 22px;
-            border: 1px solid #EAEAEA;
-            border-radius: 4px;
-        }
-
-            .chart-card.wide {
-                flex: 2;
-            }
-
-        .chart-title {
-            margin: 0 0 4px 0;
-            font-size: 16px;
-            color: #111;
-        }
-
-        .chart-sub {
-            margin: 0 0 16px 0;
-            font-size: 12px;
-            color: #888;
-        }
-
-        .chart-box {
-            position: relative;
-            height: 300px;
-        }
-
-        .message {
-            display: block;
-            padding: 10px 12px;
-            background: #f7f3ec;
-            border-left: 3px solid #a98750;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .perf-grid {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-            .perf-grid th {
-                background: #222;
-                color: #fff;
-                padding: 12px 10px;
-                text-align: left;
-                font-weight: 600;
-                font-size: 13px;
-            }
-
-            .perf-grid td {
-                padding: 10px;
-                border-bottom: 1px solid #e5e5e5;
-                font-size: 13px;
-                color: #333;
-            }
-
-            .perf-grid tr:hover td {
-                background: #faf9f6;
-            }
-
-        .table-wrap {
-            overflow-x: auto;
-        }
-
-        /* ---------- PRINT ---------- */
-        @page {
-            size: A4 landscape;
-            margin: 10mm;
-        }
-
-        @media print {
-            * {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            html, body {
-                height: auto !important;
-                overflow: visible !important;
-                background: #fff !important;
-            }
-
-            /* Sirf report dikhao, sidebar aur master ka baaki hissa chhupao */
-            body * { visibility: hidden; }
-            #reportArea, #reportArea * { visibility: visible; }
-
-            #reportArea {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-            }
-
-            .print-button { display: none !important; }
-            .print-date { display: block; color: #777; font-size: 12px; margin-top: 4px; }
-
-            .metrics-row { flex-wrap: nowrap; gap: 10px; }
-            .metric-card { min-width: 0; padding: 12px; }
-            .metric-value { font-size: 22px; }
-
-            .chart-row { flex-wrap: nowrap; gap: 10px; break-inside: avoid; page-break-inside: avoid; }
-            .chart-card { min-width: 0; padding: 14px; break-inside: avoid; page-break-inside: avoid; }
-            .chart-box { height: 230px; }
-
-            .perf-grid th, .perf-grid td { padding: 6px 8px; font-size: 11px; }
-        }
-    </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -261,11 +75,12 @@
             </div>
         </div>
 
-        <div class="chart-card" style="margin-bottom: 20px;">
+        <div class="chart-card full">
             <h3 class="chart-title">Agent Scorecard</h3>
             <p class="chart-sub">Detailed breakdown per agent</p>
-            <div class="table-wrap">
-                <asp:GridView ID="gvAgentPerf" runat="server" AutoGenerateColumns="False" GridLines="None" CssClass="perf-grid" EmptyDataText="No agents found.">
+            <div class="table-scroll">
+                <div class="table-scroll">
+<asp:GridView ID="gvAgentPerf" runat="server" AutoGenerateColumns="False" GridLines="None" CssClass="perf-grid" EmptyDataText="No agents found.">
                     <Columns>
                         <asp:BoundField DataField="Agent" HeaderText="Agent" />
                         <asp:BoundField DataField="Listings" HeaderText="Listings" />
@@ -276,21 +91,36 @@
                         <asp:BoundField DataField="Revenue" HeaderText="Sold Revenue" />
                     </Columns>
                 </asp:GridView>
+</div>
             </div>
         </div>
 
     </div> <!-- /reportArea -->
-
+        <div class="print-hide" style="background:#fff; border:1px solid #e5e5e5; border-radius:6px; padding:20px; margin-top:20px;">
+        <h3 style="margin:0 0 12px 0;">Reports</h3>
+        <asp:DropDownList ID="ddlReport" runat="server" style="padding:9px 12px; min-width:260px; margin-right:10px;">
+            <asp:ListItem Value="" Text="-- Select a report --"></asp:ListItem>
+            <asp:ListItem Value="sales" Text="Sales Report"></asp:ListItem>
+            <asp:ListItem Value="rental" Text="Rental Report"></asp:ListItem>
+            <asp:ListItem Value="agent" Text="Agent Performance"></asp:ListItem>
+            <asp:ListItem Value="commission" Text="Commission Statement"></asp:ListItem>
+            <asp:ListItem Value="inquiry" Text="Inquiry Report"></asp:ListItem>
+        </asp:DropDownList>
+        <asp:Button ID="btnGenerateReport" runat="server" Text="Generate Report" CssClass="print-button" OnClick="btnGenerateReport_Click" />
+        <asp:Label ID="lblReportMsg" runat="server" Visible="false" ForeColor="#b00020" style="margin-left:10px;"></asp:Label>
+            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="true" />
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
     <script>
         var monthly = <%= MonthlyJson %>;
         var statusData = <%= StatusJson %>;
         var agents     = <%= AgentJson %>;
 
-        var GOLD = '#a98750', DARK = '#222222', GREEN = '#4f8a5b';
+        var GOLD = '#9c7f50', DARK = '#222222', GREEN = '#4f8a5b';
 
-        Chart.defaults.font.family = 'inherit';
-        Chart.defaults.color = '#555';
+        Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+        Chart.defaults.font.size = 12;
+        Chart.defaults.color = '#62625e';
         Chart.defaults.animation = false;
 
         document.getElementById('printDate').textContent =
@@ -307,7 +137,7 @@
             maintainAspectRatio: false,
             plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } },
             scales: {
-                y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: '#f0f0f0' } },
+                y: { beginAtZero: true, ticks: { precision: 0 }, grid: { color: 'rgba(26,26,26,0.08)' } },
                 x: { grid: { display: false } }
             }
         };
@@ -325,7 +155,7 @@
                     label: 'Inquiries',
                     data: monthly.data,
                     borderColor: GOLD,
-                    backgroundColor: 'rgba(169,135,80,0.15)',
+                    backgroundColor: 'rgba(156,127,80,0.16)',
                     fill: true,
                     tension: 0.35,
                     pointBackgroundColor: GOLD
@@ -369,7 +199,7 @@
         o4.indexAxis = 'y';
         o4.plugins.legend.display = false;
         o4.scales.y = { grid: { display: false } };
-        o4.scales.x = { beginAtZero: true, grid: { color: '#f0f0f0' } };
+        o4.scales.x = { beginAtZero: true, grid: { color: 'rgba(26,26,26,0.08)' }, ticks: { callback: function (v) { return '$' + new Intl.NumberFormat('en', { notation: 'compact' }).format(v); } } };
         new Chart(document.getElementById('chRevenue'), {
             type: 'bar',
             data: {

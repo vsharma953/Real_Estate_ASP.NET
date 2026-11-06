@@ -6,20 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Admin | realEstate</title>
-    <link href="css/admin-style.css" rel="stylesheet" />
+    <link href="css/admin-style.css?v=3" rel="stylesheet" />
+    <script src="js/admin.js?v=3" defer></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server" style="display: flex; width: 100%;">
+    <form id="form1" runat="server" class="admin-shell">
 
         <aside class="admin-sidebar">
             <div class="admin-brand">
                 site<span>Admin</span>
             </div>
-            <nav class="admin-nav">
+            <nav class="admin-nav" aria-label="Main navigation">
                 <a href="Dashboard.aspx">Dashboard</a>
                 <a href="ManageAgents.aspx">Manage Agents</a>
                 <a href="AgentWork.aspx">Agent Work</a>
+                <a href="Inquiries.aspx">Inquiries</a>
+                <a href="Deals.aspx">Deals</a>
                 <a href="Analytics.aspx">Analytics Report</a>
             </nav>
             <div class="admin-footer">

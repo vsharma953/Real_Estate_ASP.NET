@@ -1,180 +1,6 @@
 ﻿<%@ Page Title="Manage Properties" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="ManageProperties.aspx.cs" Inherits="Real_Estate.Admin.ManageProperties" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-
-    <style>
-        .manage-box {
-            background: #fff;
-            padding: 30px;
-            border: 1px solid #e5e5e5;
-            border-radius: 8px;
-        }
-
-        .manage-title {
-            margin: 0 0 6px 0;
-            font-size: 28px;
-            color: #222;
-        }
-
-        .manage-subtitle {
-            margin: 0 0 25px 0;
-            color: #777;
-        }
-
-        .form-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 12px;
-        }
-
-            .form-table td {
-                padding: 4px 10px 4px 0;
-                color: #444;
-            }
-
-                .form-table td:nth-child(3) {
-                    padding-left: 25px;
-                }
-
-        .form-control {
-            height: 38px;
-            padding: 7px 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-            .form-control:focus {
-                outline: none;
-                border-color: #a98750;
-            }
-
-        .form-description {
-            resize: vertical;
-        }
-
-        .action-button {
-            padding: 9px 22px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-right: 8px;
-            font-weight: 600;
-        }
-
-        .save-button {
-            background: #222;
-            color: #fff;
-        }
-
-            .save-button:hover {
-                background: #a98750;
-            }
-
-        .clear-button {
-            background: #eee;
-            color: #333;
-        }
-
-            .clear-button:hover {
-                background: #ddd;
-            }
-
-        .message {
-            display: block;
-            padding: 10px 12px;
-            background: #f7f3ec;
-            border-left: 3px solid #a98750;
-            color: #555;
-        }
-
-        .property-grid {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-            .property-grid th {
-                background: #222;
-                color: #fff;
-                padding: 12px 10px;
-                text-align: left;
-                font-weight: 600;
-            }
-
-            .property-grid td {
-                padding: 10px;
-                border-bottom: 1px solid #e5e5e5;
-                vertical-align: middle;
-            }
-
-            .property-grid tr:hover td {
-                background: #faf9f6;
-            }
-
-        .property-image {
-            object-fit: cover;
-            border-radius: 4px;
-        }
-
-        .grid-button {
-            padding: 6px 14px;
-            border: 1px solid #ccc;
-            background: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-            .grid-button:hover {
-                background: #f3f0eb;
-                border-color: #a98750;
-            }
-
-        .delete-button {
-            color: #a33;
-        }
-
-            .delete-button:hover {
-                background: #f8eeee;
-                border-color: #c99;
-            }
-
-        .section-line {
-            border: 0;
-            border-top: 1px solid #e5e5e5;
-            margin: 28px 0;
-        }
-
-        @media (max-width: 800px) {
-            .manage-box {
-                padding: 20px;
-            }
-
-            .form-table,
-            .form-table tbody,
-            .form-table tr,
-            .form-table td {
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-                .form-table td:nth-child(3) {
-                    padding-left: 0;
-                }
-
-                .form-table td {
-                    padding-bottom: 5px;
-                }
-
-            .property-grid {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-        }
-    </style>
-
 </asp:Content>
 
 
@@ -252,7 +78,7 @@
                         CssClass="form-control"
                         placeholder="e.g. 2500">
                     </asp:TextBox>
-                    <small id="priceHint" style="color: #888;"></small>
+                    <small id="priceHint" class="form-hint"></small>
                 </td>
 
 
@@ -310,25 +136,9 @@
                     </asp:TextBox>
                 </td>
 
-                <td>Status
-                </td>
+                <td></td>
 
-                <td>
-                    <asp:DropDownList ID="ddlStatus"
-                        runat="server"
-                        Width="95%"
-                        CssClass="form-control">
-
-                        <asp:ListItem Text="Available"
-                            Value="Available">
-                        </asp:ListItem>
-
-                        <asp:ListItem Text="Sold"
-                            Value="Sold">
-                        </asp:ListItem>
-
-                    </asp:DropDownList>
-                </td>
+                <td></td>
 
             </tr>
 
@@ -432,7 +242,20 @@
 
         <hr class="section-line" />
 
-        <asp:GridView ID="gvProperties" runat="server" AutoGenerateColumns="False" GridLines="None" CssClass="property-grid" OnRowCommand="gvProperties_RowCommand" EmptyDataText="No properties found.">
+        <div class="tab-bar">
+            <asp:Repeater ID="rptTabs" runat="server" OnItemCommand="rptTabs_ItemCommand">
+                <ItemTemplate>
+                    <asp:LinkButton ID="lnkTab" runat="server" CausesValidation="false"
+                        CommandName="Tab" CommandArgument='<%# Eval("Value") %>'
+                        CssClass='<%# IsActiveTab(Eval("Value")) ? "tab-link tab-active" : "tab-link" %>'>
+                        <%#: Eval("Text") %><span class="tab-count"><%#: Eval("Total") %></span>
+                    </asp:LinkButton>
+                </ItemTemplate>
+            </asp:Repeater>
+        </div>
+
+        <div class="table-scroll">
+<asp:GridView ID="gvProperties" runat="server" AutoGenerateColumns="False" GridLines="None" CssClass="property-grid" OnRowCommand="gvProperties_RowCommand" EmptyDataText="No properties found.">
 
             <Columns>
 
@@ -484,6 +307,14 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="Deal">
+                    <ItemTemplate>
+                        <asp:HyperLink ID="hlCloseDeal" runat="server" Text="Close Deal" CssClass="grid-button"
+                            NavigateUrl='<%# "CloseDeal.aspx?PropertyID=" + Eval("PropertyID") %>'
+                            Visible='<%# Convert.ToInt32(Eval("IsOpen")) == 1 %>'></asp:HyperLink>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Edit">
                     <ItemTemplate>
                         <asp:Button ID="btnEdit" runat="server" Text="Edit" CssClass="grid-button" CommandName="EditRow" CommandArgument='<%# Eval("PropertyID") %>' />
@@ -499,6 +330,7 @@
             </Columns>
 
         </asp:GridView>
+</div>
     </div>
     
 <script>

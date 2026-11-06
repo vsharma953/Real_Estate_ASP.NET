@@ -22,14 +22,12 @@ namespace Real_Estate
         {
             if (!IsPostBack)
             {
-                // starting values come from Web.config (appSettings) - NOT hardcoded in code
                 txtRate.Text = ConfigurationManager.AppSettings["EMI:InterestRate"];
                 txtTenure.Text = ConfigurationManager.AppSettings["EMI:TenureYears"];
                 txtDownPayment.Text = ConfigurationManager.AppSettings["EMI:DownPaymentPercent"];
 
                 loadProperties();
 
-                // EMICalculator.aspx?PropertyID=5 (link from the Residences popup)
                 string id = Convert.ToString(Request.QueryString["PropertyID"]);
 
                 if (ddlProperty.Items.FindByValue(id) != null)
@@ -47,8 +45,6 @@ namespace Real_Estate
             con.Open();
         }
 
-
-        // only properties that are still for sale can be financed
         void loadProperties()
         {
             getcon();
@@ -105,11 +101,8 @@ namespace Real_Estate
             {
                 return 0;
             }
-
             return value;
         }
-
-
         void fillPrice()
         {
             if (ddlProperty.SelectedValue == "0")
@@ -118,7 +111,6 @@ namespace Real_Estate
             }
 
             // Validate the dropdown value is actually a number before it
-            // ever touches a query - a crafted POST could put anything here.
             int propertyId;
 
             if (!int.TryParse(ddlProperty.SelectedValue, out propertyId))
@@ -128,10 +120,7 @@ namespace Real_Estate
 
             getcon();
 
-            // Parameterized query: the value is passed as data, never
-            // concatenated into the SQL text, so it can't be used to
-            // inject extra SQL regardless of what the client sends.
-            cmd = new SqlCommand("SELECT Price FROM Properties WHERE PropertyID = '"+propertyId+"'", con);
+            cmd = new SqlCommand("SELECT Price FROM Properties WHERE PropertyID = '" + propertyId + "'", con);
             cmd.Parameters.Add("propertyId", SqlDbType.Int).Value = propertyId;
 
             da = new SqlDataAdapter(cmd);
@@ -248,8 +237,6 @@ namespace Real_Estate
             pnlEmpty.Visible = false;
             pnlResult.Visible = true;
         }
-
-
         string money(double value)
         {
             return "$" + value.ToString("N0", CultureInfo.InvariantCulture);

@@ -17,6 +17,16 @@ namespace Real_Estate.Admin
 
         string s = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
 
+        // the logged-in agent: an agent only sees and changes their own properties
+        int agentId
+        {
+            get
+            {
+                int id;
+                return int.TryParse(Convert.ToString(Session["AgentID"]), out id) ? id : 0;
+            }
+        }
+
         string fnm1;
         string fnm2;
         string fnm3;
@@ -83,18 +93,95 @@ namespace Real_Estate.Admin
                 fnm3 = "";
             }
         }
+        // The listing tab being shown. The values come from the "Listing For"
+        // dropdown, so adding a listing type there adds a tab automatically.
+        string currentListing()
+        {
+            string v = Convert.ToString(ViewState["Listing"]);
+
+            if (ddlListingType.Items.FindByValue(v) == null)
+            {
+                v = ddlListingType.Items[0].Value;
+            }
+
+            return v;
+        }
+
+
+        protected bool IsActiveTab(object value)
+        {
+            return value.ToString() == currentListing();
+        }
+
+
+        void loadTabs()
+        {
+            getcon();
+
+            da = new SqlDataAdapter("SELECT LOWER(LTRIM(RTRIM(ListingType))) AS ListingKey, COUNT(*) AS Total FROM Properties WHERE AgentID = '" + agentId + "' GROUP BY LOWER(LTRIM(RTRIM(ListingType)))", con);
+            ds = new DataSet();
+            da.Fill(ds);
+
+            con.Close();
+
+            DataTable tabs = new DataTable();
+            tabs.Columns.Add("Value");
+            tabs.Columns.Add("Text");
+            tabs.Columns.Add("Total");
+
+            foreach (ListItem item in ddlListingType.Items)
+            {
+                int total = 0;
+
+                foreach (DataRow r in ds.Tables[0].Rows)
+                {
+                    if (r["ListingKey"].ToString() == item.Value.ToLower())
+                    {
+                        total = Convert.ToInt32(r["Total"]);
+                    }
+                }
+
+                tabs.Rows.Add(item.Value, item.Text, total);
+            }
+
+            rptTabs.DataSource = tabs;
+            rptTabs.DataBind();
+        }
+
+
+        protected void rptTabs_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            if (e.CommandName == "Tab")
+            {
+                ViewState["Listing"] = e.CommandArgument.ToString();
+
+                lblMessage.Text = "";
+                lblMessage.Visible = false;
+
+                gridfield();
+            }
+        }
+
+
         void gridfield()
         {
             getcon();
 
-            da = new SqlDataAdapter("SELECT * FROM Properties ORDER BY PropertyID DESC", con);
+            da = new SqlDataAdapter("SELECT p.*, CASE WHEN LTRIM(RTRIM(p.Status)) = 'Available' THEN 1 ELSE 0 END AS IsOpen " +
+                "FROM Properties p WHERE p.AgentID = '" + agentId + "' AND LOWER(LTRIM(RTRIM(p.ListingType))) = '" + currentListing().ToLower() + "' ORDER BY p.PropertyID DESC", con);
 
             ds = new DataSet();
             da.Fill(ds);
+
+            // the tab already says Sale or Rent, so the Listing column is not needed
+            gvProperties.Columns[4].Visible = false;
+
             gvProperties.DataSource = ds;
             gvProperties.DataBind();
 
             con.Close();
+
+            loadTabs();
         }
 
         void clear()
@@ -107,7 +194,6 @@ namespace Real_Estate.Admin
             txtBedrooms.Text = "";
             txtBathrooms.Text = "";
             txtArea.Text = "";
-            ddlStatus.SelectedIndex = 0;
             txtDescription.Text = "";
             btnSave.Text = "Save";
             ViewState["PropertyID"] = null;
@@ -123,7 +209,7 @@ namespace Real_Estate.Admin
 
                 getcon();
 
-                string agentId = Session["AgentID"] == null ? "NULL" : "'" + Session["AgentID"].ToString() + "'";
+                string agentValue = agentId == 0 ? "NULL" : "'" + agentId + "'";
 
                 cmd = new SqlCommand(
                     "INSERT INTO Properties " +
@@ -136,12 +222,11 @@ namespace Real_Estate.Admin
                     txtLocation.Text + "','" +
                     txtBedrooms.Text + "','" +
                     txtBathrooms.Text + "','" +
-                    txtArea.Text + "','" +
-                    ddlStatus.SelectedValue + "','" +
+                    txtArea.Text + "','Available','" +
                     txtDescription.Text + "','" +
                     fnm1 + "','" +
                     fnm2 + "','" +
-                    fnm3 + "'," + agentId + ")",con);
+                    fnm3 + "'," + agentValue + ")", con);
 
                 cmd.ExecuteNonQuery();
 
@@ -149,6 +234,8 @@ namespace Real_Estate.Admin
 
                 lblMessage.Text = "Property added successfully.";
                 lblMessage.Visible = true;
+
+                ViewState["Listing"] = ddlListingType.SelectedValue;
 
                 clear();
 
@@ -160,8 +247,8 @@ namespace Real_Estate.Admin
 
                 getcon();
 
-                string query = "UPDATE Properties SET " + "Title='" + txtTitle.Text + "'," + "PropertyType='" + ddlType.SelectedValue + "'," + "ListingType='" + ddlListingType.SelectedValue + "'," + "Price='" + txtPrice.Text + "'," + "Location='" + txtLocation.Text + "'," + "Bedrooms='" + txtBedrooms.Text + "'," + "Bathrooms='" + txtBathrooms.Text + "'," + "Area='" + txtArea.Text + "'," + "Status='" + ddlStatus.SelectedValue + "'," + "Description='" + txtDescription.Text + "'";
-                 
+                string query = "UPDATE Properties SET " + "Title='" + txtTitle.Text + "'," + "PropertyType='" + ddlType.SelectedValue + "'," + "ListingType='" + ddlListingType.SelectedValue + "'," + "Price='" + txtPrice.Text + "'," + "Location='" + txtLocation.Text + "'," + "Bedrooms='" + txtBedrooms.Text + "'," + "Bathrooms='" + txtBathrooms.Text + "'," + "Area='" + txtArea.Text + "'," + "Description='" + txtDescription.Text + "'";
+
                 if (fnm1 != "")
                 {
                     query += ",Photo1='" + fnm1 + "'";
@@ -178,7 +265,7 @@ namespace Real_Estate.Admin
                 }
 
 
-                query += " WHERE PropertyID ='" + ViewState["PropertyID"] + "'";
+                query += " WHERE PropertyID ='" + ViewState["PropertyID"] + "' AND AgentID = '" + agentId + "'";
 
 
                 cmd = new SqlCommand(query, con);
@@ -188,6 +275,8 @@ namespace Real_Estate.Admin
 
                 lblMessage.Text = "Property updated successfully.";
                 lblMessage.Visible = true;
+
+                ViewState["Listing"] = ddlListingType.SelectedValue;
 
                 clear();
 
@@ -210,12 +299,12 @@ namespace Real_Estate.Admin
             {
                 getcon();
 
-                cmd = new SqlCommand("DELETE FROM Properties WHERE PropertyID='" + e.CommandArgument.ToString() + "'", con);
+                cmd = new SqlCommand("DELETE FROM Properties WHERE PropertyID='" + e.CommandArgument.ToString() + "' AND AgentID = '" + agentId + "'", con);
                 cmd.ExecuteNonQuery();
 
                 con.Close();
 
-                lblMessage.Text ="Property deleted successfully.";
+                lblMessage.Text = "Property deleted successfully.";
                 lblMessage.Visible = true;
 
                 gridfield();
@@ -226,7 +315,7 @@ namespace Real_Estate.Admin
         {
             getcon();
 
-            cmd = new SqlCommand("SELECT * FROM Properties WHERE PropertyID='" + ViewState["PropertyID"] + "'", con);
+            cmd = new SqlCommand("SELECT * FROM Properties WHERE PropertyID='" + ViewState["PropertyID"] + "' AND AgentID = '" + agentId + "'", con);
             da = new SqlDataAdapter(cmd);
             ds = new DataSet();
 
@@ -245,14 +334,12 @@ namespace Real_Estate.Admin
                 txtBedrooms.Text = ds.Tables[0].Rows[0]["Bedrooms"].ToString();
                 txtBathrooms.Text = ds.Tables[0].Rows[0]["Bathrooms"].ToString();
                 txtArea.Text = ds.Tables[0].Rows[0]["Area"].ToString();
-                string st = ds.Tables[0].Rows[0]["Status"].ToString().Trim();
-                ddlStatus.SelectedIndex = st.Equals("Sold", StringComparison.OrdinalIgnoreCase) ? 1 : 0;
                 txtDescription.Text = ds.Tables[0].Rows[0]["Description"].ToString();
             }
 
             con.Close();
         }
-        protected void btnCancel_Click(object sender,EventArgs e)
+        protected void btnCancel_Click(object sender, EventArgs e)
         {
             clear();
         }

@@ -1,62 +1,3 @@
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\Real_Estate.dll.config
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\Real_Estate.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\Real_Estate.pdb
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\csc.exe
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\csc.exe.config
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\csc.rsp
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\csi.exe
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\csi.exe.config
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\csi.rsp
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.CSharp.Core.targets
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.Managed.Core.targets
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.VisualBasic.Core.targets
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\Microsoft.Win32.Primitives.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.AppContext.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Collections.Immutable.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Console.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Diagnostics.StackTrace.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Globalization.Calendars.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.IO.Compression.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.IO.Compression.ZipFile.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.IO.FileSystem.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.IO.FileSystem.Primitives.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Net.Http.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Net.Sockets.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Reflection.Metadata.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Security.Cryptography.Encoding.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Security.Cryptography.Primitives.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Text.Encoding.CodePages.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Threading.Tasks.Extensions.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.ValueTuple.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Xml.ReaderWriter.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Xml.XmlDocument.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Xml.XPath.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\System.Xml.XPath.XDocument.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\vbc.exe
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\vbc.exe.config
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\vbc.rsp
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\VBCSCompiler.exe
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\roslyn\VBCSCompiler.exe.config
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\obj\Debug\Real_Estate.csproj.AssemblyReference.cache
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\obj\Debug\Real_Estate.csproj.CoreCompileInputs.cache
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\obj\Debug\Real_Est.F152BD3D.Up2Date
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\obj\Debug\Real_Estate.dll
-D:\5-BCA\ASP.NET\PROJECT\Real_Estate\Real_Estate\obj\Debug\Real_Estate.pdb
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Real_Estate.dll.config
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Real_Estate.dll
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Real_Estate.pdb
@@ -109,69 +50,44 @@ C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\ros
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\roslyn\vbc.rsp
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\roslyn\VBCSCompiler.exe
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.CrystalReports.Design.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.Data.AdoDotNetInterop.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.ReportSource.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.Shared.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.VSDesigner.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.Web.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CrystalDecisions.Windows.Forms.dll
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.Shell.15.0.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.Interop.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\CRVsPackageLib.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.TemplateWizardInterface.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.Shell.Framework.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\VsWebSite.Interop.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.Telemetry.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\System.Memory.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.RpcContracts.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\System.Collections.Immutable.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.ProjectAggregator.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\System.Buffers.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\EnvDTE.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.GraphModel.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.Utilities.Internal.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Newtonsoft.Json.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.RemoteControl.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\System.Numerics.Vectors.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\stdole.dll
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.TemplateWizardInterface.xml
+C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\bin\Microsoft.VisualStudio.GraphModel.xml
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\obj\Debug\Real_Estate.csproj.AssemblyReference.cache
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\obj\Debug\Real_Estate.csproj.CoreCompileInputs.cache
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\obj\Debug\Real_Est.F152BD3D.Up2Date
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\obj\Debug\Real_Estate.dll
 C:\Users\Asus\OneDrive\Documents\Desktop\Real_Estate_Project\Real_Estate\obj\Debug\Real_Estate.pdb
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\Real_Estate.dll.config
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\Real_Estate.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\Real_Estate.pdb
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\csc.exe
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\csc.exe.config
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\csc.rsp
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\csi.exe
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\csi.exe.config
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\csi.rsp
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.Managed.Core.targets
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.AppContext.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Console.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Globalization.Calendars.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.IO.Compression.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.IO.Compression.ZipFile.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Net.Http.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Net.Sockets.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Threading.Tasks.Extensions.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.ValueTuple.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\vbc.exe
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\vbc.exe.config
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\vbc.rsp
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\VBCSCompiler.exe
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Dell\Desktop\real state project\Real_Estate\obj\Debug\Real_Estate.csproj.AssemblyReference.cache
-C:\Users\Dell\Desktop\real state project\Real_Estate\obj\Debug\Real_Estate.csproj.CoreCompileInputs.cache
-C:\Users\Dell\Desktop\real state project\Real_Estate\obj\Debug\Real_Est.F152BD3D.Up2Date
-C:\Users\Dell\Desktop\real state project\Real_Estate\obj\Debug\Real_Estate.dll
-C:\Users\Dell\Desktop\real state project\Real_Estate\obj\Debug\Real_Estate.pdb
